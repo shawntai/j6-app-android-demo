@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">j6-app-android-demo</string>
     <string name="see_all">See All</string>
+    <string name="pack_up">Pack Up</string>
 </resources>
