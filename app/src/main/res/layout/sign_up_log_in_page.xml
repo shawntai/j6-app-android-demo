@@ -8,9 +8,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/log_in_background"/>
+            android:layout_width="180dp"
+            android:layout_height="520dp"
+            android:src="@drawable/log_in_background"
+            android:layout_gravity="right"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -28,16 +29,22 @@
                     android:text="Sign up"
                     android:textColor="@color/white"
                     android:textSize="45sp"/>
-                <TextView
-                    android:id="@+id/not_selected"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Log in"
-                    android:textColor="@color/j6_light_gray"
-                    android:textSize="30sp"
-                    android:layout_marginLeft="40dp"
-                    android:layout_gravity="center"
-                    android:onClick="switchMode"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right"
+                    android:gravity="right">
+                    <TextView
+                        android:id="@+id/not_selected"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:text="Log in"
+                        android:textColor="@color/j6_light_gray"
+                        android:textSize="30sp"
+                        android:layout_gravity="center"
+                        android:onClick="switchMode"/>
+                </LinearLayout>
             </LinearLayout>
             <TextView
                 android:layout_width="wrap_content"
@@ -53,6 +60,7 @@
                 android:imeOptions="actionSearch"
                 android:layout_gravity="bottom"
                 android:textColor="@color/white"
+                android:text="fm@hkstp.org"
                 android:backgroundTint="@color/j6_light_gray"
                 android:hint="Enter your email here"
                 android:textColorHint="@color/j6_light_gray"/>
@@ -93,8 +101,8 @@
                 android:layout_marginTop="5dp"
                 android:visibility="invisible"/>
             <ImageView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:src="@drawable/log_in_arrow"
                 android:layout_gravity="right"
                 android:layout_marginTop="55dp"

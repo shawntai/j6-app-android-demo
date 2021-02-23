@@ -10,14 +10,10 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
-class MainActivity : AppCompatActivity() {
+class LogInActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.start_page)
-    }
-
-    fun actualOnCreate(view: View) {
         setContentView(R.layout.sign_up_log_in_page)
     }
 
