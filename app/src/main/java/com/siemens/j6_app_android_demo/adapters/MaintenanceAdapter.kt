@@ -1,4 +1,4 @@
-package com.siemens.j6_app_android_demo
+package com.siemens.j6_app_android_demo.adapters
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -8,7 +8,8 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
-import java.text.SimpleDateFormat
+import com.siemens.j6_app_android_demo.R
+import com.siemens.j6_app_android_demo.models.MaintenanceDataModel
 import java.util.*
 
 class MaintenanceAdapter(private val context: Context, private val arrayList: java.util.ArrayList<MaintenanceDataModel>) : BaseAdapter() {

@@ -1,7 +1,6 @@
-package com.siemens.j6_app_android_demo
+package com.siemens.j6_app_android_demo.activities.home_page
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
@@ -9,6 +8,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.siemens.j6_app_android_demo.R
+import com.siemens.j6_app_android_demo.adapters.CalenderAdapter
+import com.siemens.j6_app_android_demo.adapters.MaintenanceAdapter
+import com.siemens.j6_app_android_demo.models.MaintenanceDataModel
 import java.util.*
 import kotlin.collections.ArrayList
 

@@ -1,4 +1,4 @@
-package com.siemens.j6_app_android_demo
+package com.siemens.j6_app_android_demo.adapters
 
 import android.graphics.Color
 import android.util.Log
@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.siemens.j6_app_android_demo.R
 import java.util.*
 
 

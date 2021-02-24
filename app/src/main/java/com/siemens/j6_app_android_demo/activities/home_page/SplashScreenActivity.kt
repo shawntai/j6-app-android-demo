@@ -1,8 +1,9 @@
-package com.siemens.j6_app_android_demo
+package com.siemens.j6_app_android_demo.activities.home_page
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.siemens.j6_app_android_demo.R
 
 class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
