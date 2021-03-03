@@ -1,20 +1,26 @@
 package com.siemens.j6_app_android_demo.activities.home_page
 
+import android.animation.LayoutTransition
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.siemens.j6_app_android_demo.R
 import com.siemens.j6_app_android_demo.adapters.CalenderAdapter
 import com.siemens.j6_app_android_demo.adapters.MaintenanceAdapter
+import com.siemens.j6_app_android_demo.fragments.FavoriteFragment
+import com.siemens.j6_app_android_demo.fragments.SearchFragment
+import com.siemens.j6_app_android_demo.fragments.WorkOrderFragment
 import com.siemens.j6_app_android_demo.models.MaintenanceDataModel
 import java.util.*
 import kotlin.collections.ArrayList
-
 
 class HomePageActivity : AppCompatActivity() {
 
@@ -30,12 +36,17 @@ class HomePageActivity : AppCompatActivity() {
     var maintenanceList: ArrayList<MaintenanceDataModel> = ArrayList()
     var mAdapter: MaintenanceAdapter? = null
 
+    lateinit var datesRecyclerView: RecyclerView
+
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_page)
 
         allFeatHoriz = findViewById(R.id.all_features_horiz_scroll)
         allFeatExp = findViewById(R.id.all_features_expanded)
+        allFeatHoriz.layoutTransition.enableTransitionType(LayoutTransition.CHANGING)
+        allFeatExp.layoutTransition.enableTransitionType(LayoutTransition.CHANGING)
         val scale: Float = resources.displayMetrics.density
         allFeatHorizHeight = (110 * scale + 0.5f).toInt()
         allFeatExpHeight = (360 * scale + 0.5f).toInt()
@@ -46,24 +57,26 @@ class HomePageActivity : AppCompatActivity() {
         Toast.makeText(this, "hh: " + allFeatHoriz.height + ", eh: " + allFeatExp.height, Toast.LENGTH_SHORT).show()
         // hide allFeatExp in the beginning
         allFeatExp.layoutParams = LinearLayout.LayoutParams(allFeatExp.width, 0)*/
-        val datesRecyclerView = findViewById<RecyclerView>(R.id.dates_recyclerview)
+        datesRecyclerView = findViewById<RecyclerView>(R.id.dates_recyclerview)
         dAdapter = CalenderAdapter(datesList)
         val layoutManager = LinearLayoutManager(applicationContext)
         layoutManager.orientation = LinearLayoutManager.HORIZONTAL
         datesRecyclerView.layoutManager = layoutManager
         datesRecyclerView.itemAnimator = DefaultItemAnimator()
         datesRecyclerView.adapter = dAdapter
-        prepareDatesHotData()
-        /*dAdapter!!.setOnItemClickListener(object : DateAdapter.ClickListener {
+        prepareDatesData()
+        datesRecyclerView.scrollToPosition(Calendar.getInstance().get(Calendar.DAY_OF_MONTH) - 1)
+        /*dAdapter!!.setOnItemClickListener(object : CalenderAdapter.ClickListener {
             override fun onItemClick(position: Int, v: View?) {
-                //Toast.makeText(baseContext, position.toString(), Toast.LENGTH_SHORT).show()
+                Toast.makeText(baseContext, position.toString(), Toast.LENGTH_SHORT).show()
                 Log.d("TAG", "#############$position")
-                //if (position+1 == datesList[position].get(Calendar.DAY_OF_MONTH)) {
+                /*//if (position+1 == datesList[position].get(Calendar.DAY_OF_MONTH)) {
                 //    Log.d("TAG", "#############Position+1: " + (position+1) + ", DoM: " + datesList[position].get(Calendar.DAY_OF_MONTH))
                 v?.setBackgroundResource(R.drawable.shape_orange)
                 Log.d("V", ((v as LinearLayout)[0] as TextView).text as String)
                 //dAdapter!!.notifyDataSetChanged()
-                //}
+                //}*/
+                datesRecyclerView.scrollToPosition(position)
             }
 
         })*/
@@ -91,11 +104,26 @@ class HomePageActivity : AppCompatActivity() {
         }*/
         //setting listview item in adapter
         val params: ViewGroup.LayoutParams = mListView.layoutParams
-        params.height = totalHeight + mListView.dividerHeight * (mAdapter!!.count - 1) + 50  // arbitrary margin
+        params.height = totalHeight + mListView.dividerHeight * mAdapter!!.count
         mListView.layoutParams = params
+
+        // fragments
+        loadFragment(WorkOrderFragment())
+        findViewById<TextView>(R.id.work_order_butt).setOnClickListener {
+            updateFragButtonBackground(it)
+            loadFragment(WorkOrderFragment())
+        }
+        findViewById<LinearLayout>(R.id.search_butt).setOnClickListener {
+            updateFragButtonBackground(it)
+            loadFragment(SearchFragment())
+        }
+        findViewById<LinearLayout>(R.id.favorite_butt).setOnClickListener {
+            updateFragButtonBackground(it)
+            loadFragment(FavoriteFragment())
+        }
     }
 
-    private fun prepareDatesHotData() {
+    private fun prepareDatesData() {
         val cal = Calendar.getInstance()
         cal.set(Calendar.DAY_OF_MONTH, 1)
         val month = cal.get(Calendar.MONTH)
@@ -126,4 +154,41 @@ class HomePageActivity : AppCompatActivity() {
             findViewById<ImageView>(R.id.see_all_pack_up_img).setImageResource(R.drawable.orange_homepage_see_all_downward_arrow)
         }
     }
+
+    fun expandWorkOrder(view: View) {
+        val scale: Float = resources.displayMetrics.density
+        val workOrder: LinearLayout = findViewById(R.id.work_order)
+        workOrder.layoutTransition.enableTransitionType(LayoutTransition.CHANGING)
+
+        val params = workOrder.layoutParams
+        if (params.height != (460 * scale + 0.5f).toInt()) {
+            params.height = (460 * scale + 0.5f).toInt()
+        } else {
+            params.height = (80 * scale + 0.5f).toInt()
+        }
+        workOrder.layoutParams = params
+    }
+
+    private fun loadFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction().replace(R.id.fragment_placeholder, fragment).commit()
+    }
+
+    private fun updateFragButtonBackground(clicked: View) {
+        if (findViewById<TextView>(R.id.work_order_butt) == clicked) {
+            findViewById<TextView>(R.id.work_order_butt).setBackgroundResource(R.drawable.shape_gray_rounder)
+        } else {
+            findViewById<TextView>(R.id.work_order_butt).setBackgroundResource(R.drawable.shape_darker_light_gray)
+        }
+        if (findViewById<LinearLayout>(R.id.search_butt) == clicked) {
+            findViewById<LinearLayout>(R.id.search_butt).setBackgroundResource(R.drawable.shape_gray_rounder)
+        } else {
+            findViewById<LinearLayout>(R.id.search_butt).setBackgroundResource(R.drawable.shape_darker_light_gray)
+        }
+        if (findViewById<LinearLayout>(R.id.favorite_butt) == clicked) {
+            findViewById<LinearLayout>(R.id.favorite_butt).setBackgroundResource(R.drawable.shape_gray_rounder)
+        } else {
+            findViewById<LinearLayout>(R.id.favorite_butt).setBackgroundResource(R.drawable.shape_darker_light_gray)
+        }
+    }
+
 }

@@ -1,5 +1,6 @@
 package com.siemens.j6_app_android_demo.adapters
 
+import android.animation.LayoutTransition
 import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
@@ -7,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.siemens.j6_app_android_demo.R
 import java.util.*
@@ -33,7 +35,7 @@ class CalenderAdapter(var list: List<Calendar>) : RecyclerView.Adapter<CalenderA
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView: View = LayoutInflater.from(parent.context)
-                .inflate(R.layout.data_list_item, parent, false)
+                .inflate(R.layout.date_list_item, parent, false)
         return MyViewHolder(itemView)
     }
 
@@ -45,12 +47,14 @@ class CalenderAdapter(var list: List<Calendar>) : RecyclerView.Adapter<CalenderA
             indexClicked = position
             notifyDataSetChanged()
         })
-        Log.d("indexClicked", indexClicked.toString())
-        Log.d("position", position.toString())
         if (indexClicked == position) {
             holder.bg.setBackgroundResource(R.drawable.shape_orange)
+            holder.date.setTextColor(Color.parseColor("#000000"))
+            holder.day.setTextColor(Color.parseColor("#000000"))
         } else {
             holder.bg.setBackgroundColor(Color.parseColor("#1a1a1a"))
+            holder.date.setTextColor(Color.parseColor("#ffffff"))
+            holder.day.setTextColor(Color.parseColor("#ffffff"))
         }
     }
 

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="240dp"
+    android:layout_height="65dp"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginBottom="15sp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/shape_light_gray_rounder">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Work Order"
+            android:textColor="#213947"
+            android:textSize="20sp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="22sp"/>
+    </LinearLayout>
+    <ImageView
+        android:layout_width="65dp"
+        android:layout_height="match_parent"
+        android:src="@drawable/log_in_arrow"
+        android:layout_gravity="end"
+        android:onClick="toHomePage"/>
+</FrameLayout>-->
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="240dp"
+    android:layout_height="65dp"
+    android:text="New Work Order"
+    android:textColor="#213947"
+    android:textSize="24sp"
+    android:background="@drawable/shape_light_gray_rounder"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:layout_marginBottom="15dp"/>

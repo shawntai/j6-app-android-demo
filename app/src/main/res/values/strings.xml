@@ -3,4 +3,10 @@
     <string name="see_all">See All</string>
     <string name="pack_up">Pack Up</string>
     <string name="scheduled_maintenance">Scheduled Maintenance</string>
+    <string name="let_s_explore_what_s_happening_near_by">Let\'s explore what\'s happening near by</string>
+    <string name="hello_chris">Hello, Chris!</string>
+    <string name="all_features">All Features</string>
+    <string name="work_order">Work Order</string>
+    <string name="work_order_appointment">Work Order Appointment</string>
+    <string name="work_order_completion">Work Order Completion</string>
 </resources>

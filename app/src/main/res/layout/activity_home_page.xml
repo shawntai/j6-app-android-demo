@@ -29,19 +29,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:gravity="right"
-                    android:layout_gravity="center"
-                    tools:ignore="RtlHardcoded">
+                    android:gravity="end"
+                    android:layout_gravity="center">
                     <ImageView
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:src="@drawable/homepage_four_squares_icon"
-                        android:layout_marginRight="15dp"/>
+                        android:layout_marginEnd="15dp"/>
                     <ImageView
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:src="@drawable/homepage_bell_icon"
-                        android:layout_marginRight="15dp"/>
+                        android:layout_marginEnd="15dp"/>
                     <ImageView
                         android:layout_width="25dp"
                         android:layout_height="25dp"
@@ -60,13 +59,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Hello, Chris!"
+                        android:text="@string/hello_chris"
                         android:textColor="@color/white"
                         android:textSize="23sp"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Let's explore what's happening near by"
+                        android:text="@string/let_s_explore_what_s_happening_near_by"
                         android:textColor="@color/white"
                         android:textSize="17sp"/>
                 </LinearLayout>
@@ -242,7 +241,7 @@
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="100dp">
+                android:layout_marginBottom="80dp">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -255,20 +254,20 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="All Features"
+                            android:text="@string/all_features"
                             android:textColor="@color/white"
-                            android:textSize="17dp"/>
+                            android:textSize="17sp"/>
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:gravity="right">
+                            android:gravity="end">
                             <TextView
                                 android:id="@+id/see_all_pack_up_text"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/see_all"
                                 android:textColor="@color/j6_light_orange"
-                                android:textSize="17dp"
+                                android:textSize="17sp"
                                 android:layout_gravity="center"
                                 android:onClick="expandOrCollapseAllFeatures"/>
                             <ImageView
@@ -277,13 +276,15 @@
                                 android:layout_height="15dp"
                                 android:src="@drawable/orange_homepage_see_all_downward_arrow"
                                 android:layout_gravity="center"
-                                android:layout_marginLeft="10dp"
+                                android:layout_marginStart="10dp"
                                 android:onClick="expandOrCollapseAllFeatures"/>
                         </LinearLayout>
 
                     </LinearLayout>
                     <include layout="@layout/all_feat_horiz"/>
-                    <include layout="@layout/all_feat_expanded"/>
+
+                    <include layout="@layout/all_feat_expanded" />
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -427,29 +428,121 @@
                 </LinearLayout>
             </ScrollView>
         </LinearLayout>
+
         <LinearLayout
+            android:id="@+id/work_order"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:background="#313131"
+            android:layout_height="80dp"
             android:layout_gravity="bottom"
-            android:gravity="center">
-            <TextView
-                android:layout_width="140dp"
-                android:layout_height="55dp"
-                android:background="@drawable/shape_gray_rounder"
-                android:text="Work Order"
-                android:textColor="@color/j6_light_orange"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical"
+            android:background="@drawable/shape_darker_light_gray">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_gravity="bottom"
                 android:gravity="center"
-                android:textSize="18sp"/>
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:src="@drawable/search"
-                android:layout_marginLeft="30dp"/>
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:src="@drawable/favorite"/>
+                android:onClick="expandWorkOrder" >
+
+                <TextView
+                    android:id="@+id/work_order_butt"
+                    android:layout_width="140dp"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/shape_gray_rounder"
+                    android:gravity="center"
+                    android:text="@string/work_order"
+                    android:textColor="@color/j6_light_orange"
+                    android:textSize="18sp"/>
+
+                <LinearLayout
+                    android:id="@+id/search_butt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="55dp"
+                    android:background="@drawable/shape_darker_light_gray"
+                    android:layout_marginStart="30dp">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:src="@drawable/search"
+                        android:layout_gravity="center"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/favorite_butt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="55dp"
+                    android:background="@drawable/shape_darker_light_gray"
+                    android:layout_marginStart="30dp">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:src="@drawable/favorite"
+                        android:layout_gravity="center"/>
+                </LinearLayout>
+            </LinearLayout>
+            <!--<androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:animateLayoutChanges="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/work_order_appointment"
+                        android:textSize="17sp"
+                        android:textColor="@color/white"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginBottom="10dp"/>
+                    <LinearLayout
+                        android:id="@+id/appointment_ll"
+                        android:layout_width="match_parent"
+                        android:layout_height="450dp"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp">
+                        <ListView
+                            android:id="@+id/appointment_listview"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:divider="@android:color/transparent"
+                            android:dividerHeight="30.0sp"/>
+                    </LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/work_order_completion"
+                        android:textSize="17sp"
+                        android:textColor="@color/white"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginBottom="10dp"/>
+                    <LinearLayout
+                        android:id="@+id/completion_ll"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp">
+                        <ListView
+                            android:id="@+id/completion_listview"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:divider="@android:color/transparent"
+                            android:dividerHeight="30.0sp"/>
+                    </LinearLayout>
+                    <include layout="@layout/new_work_order_button_shape"/>
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>-->
+            <FrameLayout
+                android:id="@+id/fragment_placeholder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
         </LinearLayout>
 
     </FrameLayout>
