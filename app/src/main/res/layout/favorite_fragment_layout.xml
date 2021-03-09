@@ -10,6 +10,14 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="600dp"
+            android:text="Favorite fragment"
+            android:background="#313131"
+            android:textColor="@color/white"
+            android:gravity="center"/>
+        <!--
+        <TextView
             android:layout_width="270dp"
             android:layout_height="250dp"
             android:text="Favorite Fragment!"
@@ -33,5 +41,6 @@
             android:layout_gravity="center"
             android:background="#E6BBE8"
             android:textColor="#EFF752"/>
+            -->
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

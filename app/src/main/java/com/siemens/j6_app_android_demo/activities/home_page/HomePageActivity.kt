@@ -2,7 +2,10 @@ package com.siemens.j6_app_android_demo.activities.home_page
 
 import android.animation.LayoutTransition
 import android.annotation.SuppressLint
+import android.content.res.Resources
 import android.os.Bundle
+import android.util.DisplayMetrics
+import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
@@ -161,8 +164,12 @@ class HomePageActivity : AppCompatActivity() {
         workOrder.layoutTransition.enableTransitionType(LayoutTransition.CHANGING)
 
         val params = workOrder.layoutParams
-        if (params.height != (460 * scale + 0.5f).toInt()) {
-            params.height = (460 * scale + 0.5f).toInt()
+        val screenHeight = Resources.getSystem().displayMetrics.heightPixels + getNavigationBarHeight()
+        val scrollPosition = IntArray(2)
+        findViewById<ScrollView>(R.id.scroll_view).getLocationOnScreen(scrollPosition)
+        val expandedHeight = screenHeight - scrollPosition[1] - getNavigationBarHeight()
+        if (params.height != expandedHeight) {
+            params.height = expandedHeight
         } else {
             params.height = (80 * scale + 0.5f).toInt()
         }
@@ -189,6 +196,15 @@ class HomePageActivity : AppCompatActivity() {
         } else {
             findViewById<LinearLayout>(R.id.favorite_butt).setBackgroundResource(R.drawable.shape_darker_light_gray)
         }
+    }
+
+    private fun getNavigationBarHeight(): Int {
+        val metrics = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(metrics)
+        val usableHeight: Int = metrics.heightPixels
+        windowManager.defaultDisplay.getRealMetrics(metrics)
+        val realHeight: Int = metrics.heightPixels
+        return if (realHeight > usableHeight) realHeight - usableHeight else 0
     }
 
 }

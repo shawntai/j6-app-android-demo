@@ -10,12 +10,12 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/start_background"/>
+            android:src="@drawable/splash_screen_bg"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_marginTop="320dp">
+            android:gravity="center">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -26,7 +26,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Smart Family Management"
+                android:text="Smart Facility Management"
                 android:textColor="@color/j6_dark_orange"
                 android:layout_gravity="center"
                 android:textSize="18sp"/>
