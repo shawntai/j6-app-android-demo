@@ -9,8 +9,9 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="j6_black">#1a1a1a</color>
-    <color name="j6_dark_orange">#fd6a36</color>
+    <color name="j6_dark_orange">#FD4F1E</color>
     <color name="j6_gray">#454545</color>
     <color name="j6_light_gray">#afafaf</color>
     <color name="j6_light_orange">#F36F32</color>
+    <color name="date_from_other_months">#AAAAAA</color>
 </resources>

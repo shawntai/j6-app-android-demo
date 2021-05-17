@@ -34,6 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Jan 21, 2021"
+                android:textSize="13sp"
                 android:textColor="@color/black"
                 android:layout_marginLeft="5dp"/>
         </LinearLayout>
@@ -53,7 +54,7 @@
                 android:text="Chiller Plant Room, Building 1"
                 android:textColor="@color/black"
                 android:layout_marginLeft="5dp"
-                android:textSize="12sp"/>
+                android:textSize="13sp"/>
         </LinearLayout>
     </LinearLayout>
     <ImageView

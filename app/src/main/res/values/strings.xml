@@ -9,4 +9,7 @@
     <string name="work_order">Work Order</string>
     <string name="work_order_appointment">Work Order Appointment</string>
     <string name="work_order_completion">Work Order Completion</string>
+    <string name="building_level_room">Building Level Room</string>
+    <string name="employee_department_position">Employee Department Position</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur odio neque, laoreet a odio sed, bibendum euismod nisi. Donec fermentum diam eu risus pulvinar feugiat. Maecenas feugiat est ac auctor pellentesque. Donec eu elit eu leo tempus fermentum eget vitae orci. Vestibulum aliquet commodo augue vel iaculis. Integer fermentum lobortis porta. Nulla tempor nec tortor sollicitudin suscipit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Proin ac tristique lacus, quis sodales arcu. Duis consectetur ut lorem in sodales. Nullam sodales ultrices pretium. Etiam venenatis, nibh sed dignissim pellentesque, leo lorem vehicula ex, ac finibus massa nisl et ipsum. Aliquam lobortis mauris a ligula lobortis finibus.</string>
 </resources>

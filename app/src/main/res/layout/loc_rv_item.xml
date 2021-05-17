@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.chauthai.swipereveallayout.SwipeRevealLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/swipeRevealLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="35dp"
+    app:dragEdge="right">
+
+    <include android:id="@+id/second" layout="@layout/second_layout"/>
+
+    <include layout="@layout/loc_lv_item"/>
+
+</com.chauthai.swipereveallayout.SwipeRevealLayout>

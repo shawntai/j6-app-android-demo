@@ -43,10 +43,10 @@ class CalenderAdapter(var list: List<Calendar>) : RecyclerView.Adapter<CalenderA
         val date: Calendar = list[position]
         holder.date.text = date.get(Calendar.DATE).toString()
         holder.day.text = days[date.get(Calendar.DAY_OF_WEEK)]
-        holder.bg.setOnClickListener(View.OnClickListener {
+        holder.bg.setOnClickListener {
             indexClicked = position
             notifyDataSetChanged()
-        })
+        }
         if (indexClicked == position) {
             holder.bg.setBackgroundResource(R.drawable.shape_orange)
             holder.date.setTextColor(Color.parseColor("#000000"))

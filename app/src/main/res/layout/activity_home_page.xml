@@ -437,7 +437,7 @@
             android:layout_gravity="bottom"
             android:animateLayoutChanges="true"
             android:orientation="vertical"
-            android:background="@drawable/shape_darker_light_gray">
+            android:background="@drawable/shape_darker_light_gray_two_corners">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
@@ -459,10 +459,10 @@
 
                 <LinearLayout
                     android:id="@+id/search_butt"
-                    android:layout_width="wrap_content"
+                    android:layout_width="50dp"
                     android:layout_height="55dp"
-                    android:background="@drawable/shape_darker_light_gray"
-                    android:layout_marginStart="30dp">
+                    android:background="@drawable/shape_darker_light_gray_two_corners"
+                    android:layout_marginStart="15dp">
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
@@ -472,14 +472,27 @@
 
                 <LinearLayout
                     android:id="@+id/favorite_butt"
-                    android:layout_width="wrap_content"
+                    android:layout_width="50dp"
                     android:layout_height="55dp"
-                    android:background="@drawable/shape_darker_light_gray"
-                    android:layout_marginStart="30dp">
+                    android:background="@drawable/shape_darker_light_gray_two_corners"
+                    android:layout_marginStart="15dp">
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
                         android:src="@drawable/favorite"
+                        android:layout_gravity="center"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/add_new_work_order"
+                    android:layout_width="50dp"
+                    android:layout_height="55dp"
+                    android:background="@drawable/shape_darker_light_gray_two_corners"
+                    android:layout_marginStart="15dp">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:src="@drawable/add_new_work_order"
                         android:layout_gravity="center"/>
                 </LinearLayout>
             </LinearLayout>

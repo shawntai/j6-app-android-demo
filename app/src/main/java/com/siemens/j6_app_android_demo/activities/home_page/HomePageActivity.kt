@@ -2,26 +2,31 @@ package com.siemens.j6_app_android_demo.activities.home_page
 
 import android.animation.LayoutTransition
 import android.annotation.SuppressLint
+import android.app.Activity
+import android.content.Intent
 import android.content.res.Resources
+import android.graphics.Typeface
 import android.os.Bundle
 import android.util.DisplayMetrics
-import android.util.Log
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.gson.Gson
 import com.siemens.j6_app_android_demo.R
 import com.siemens.j6_app_android_demo.adapters.CalenderAdapter
 import com.siemens.j6_app_android_demo.adapters.MaintenanceAdapter
 import com.siemens.j6_app_android_demo.fragments.FavoriteFragment
 import com.siemens.j6_app_android_demo.fragments.SearchFragment
 import com.siemens.j6_app_android_demo.fragments.WorkOrderFragment
+import com.siemens.j6_app_android_demo.models.Location
 import com.siemens.j6_app_android_demo.models.MaintenanceDataModel
+import com.siemens.j6_app_android_demo.models.WorkOrder
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -40,6 +45,8 @@ class HomePageActivity : AppCompatActivity() {
     var mAdapter: MaintenanceAdapter? = null
 
     lateinit var datesRecyclerView: RecyclerView
+
+    var editedWorkOrderPosition = 0
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -124,6 +131,27 @@ class HomePageActivity : AppCompatActivity() {
             updateFragButtonBackground(it)
             loadFragment(FavoriteFragment())
         }
+        findViewById<LinearLayout>(R.id.add_new_work_order).setOnClickListener {
+            //startActivity(Intent(this, AddNewWorkOrderActivity::class.java))
+            addNewWorkOrder.launch(Intent(this, AddNewWorkOrderActivity::class.java))
+        }
+    }
+
+    private val addNewWorkOrder = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            val nwo = Gson().fromJson(result.data!!.getStringExtra("nwo"), WorkOrder::class.java)
+            //WorkOrderFragment().onNewWorkOrderAdded(nwo)
+            (supportFragmentManager.findFragmentById(R.id.fragment_placeholder) as WorkOrderFragment).onNewWorkOrderAdded(nwo)
+            expandWorkOrder(View(this))
+        }
+    }
+
+    val editWorkOrder = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            val woe = Gson().fromJson(result.data!!.getStringExtra("wo_edited"), WorkOrder::class.java)
+            (supportFragmentManager.findFragmentById(R.id.fragment_placeholder) as WorkOrderFragment).onWorkOrderEdited(woe, editedWorkOrderPosition)
+            //expandWorkOrder(View(this))
+        }
     }
 
     private fun prepareDatesData() {
@@ -181,21 +209,25 @@ class HomePageActivity : AppCompatActivity() {
     }
 
     private fun updateFragButtonBackground(clicked: View) {
-        if (findViewById<TextView>(R.id.work_order_butt) == clicked) {
+        /*if (findViewById<TextView>(R.id.work_order_butt) == clicked) {
             findViewById<TextView>(R.id.work_order_butt).setBackgroundResource(R.drawable.shape_gray_rounder)
         } else {
-            findViewById<TextView>(R.id.work_order_butt).setBackgroundResource(R.drawable.shape_darker_light_gray)
+            findViewById<TextView>(R.id.work_order_butt).setBackgroundResource(R.drawable.shape_darker_light_gray_two_corners)
         }
         if (findViewById<LinearLayout>(R.id.search_butt) == clicked) {
             findViewById<LinearLayout>(R.id.search_butt).setBackgroundResource(R.drawable.shape_gray_rounder)
         } else {
-            findViewById<LinearLayout>(R.id.search_butt).setBackgroundResource(R.drawable.shape_darker_light_gray)
+            findViewById<LinearLayout>(R.id.search_butt).setBackgroundResource(R.drawable.shape_darker_light_gray_two_corners)
         }
         if (findViewById<LinearLayout>(R.id.favorite_butt) == clicked) {
             findViewById<LinearLayout>(R.id.favorite_butt).setBackgroundResource(R.drawable.shape_gray_rounder)
         } else {
-            findViewById<LinearLayout>(R.id.favorite_butt).setBackgroundResource(R.drawable.shape_darker_light_gray)
-        }
+            findViewById<LinearLayout>(R.id.favorite_butt).setBackgroundResource(R.drawable.shape_darker_light_gray_two_corners)
+        }*/
+        findViewById<TextView>(R.id.work_order_butt).setBackgroundResource(R.drawable.shape_darker_light_gray_two_corners)
+        findViewById<LinearLayout>(R.id.search_butt).setBackgroundResource(R.drawable.shape_darker_light_gray_two_corners)
+        findViewById<LinearLayout>(R.id.favorite_butt).setBackgroundResource(R.drawable.shape_darker_light_gray_two_corners)
+        clicked.setBackgroundResource(R.drawable.shape_gray_rounder)
     }
 
     private fun getNavigationBarHeight(): Int {
