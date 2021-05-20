@@ -13,32 +13,12 @@
             android:layout_width="130dp"
             android:layout_height="100dp"
             android:orientation="vertical"
-            android:background="@drawable/shape_gray"
+            android:background="@drawable/all_feat_bg"
             android:layout_marginLeft="10dp">
             <ImageView
                 android:layout_width="60dp"
                 android:layout_height="50dp"
-                android:src="@drawable/lightning"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="EMS"
-                android:textColor="@color/white"
-                android:textSize="21dp"
-                android:layout_gravity="center_horizontal"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="130dp"
-            android:layout_height="100dp"
-            android:orientation="vertical"
-            android:background="@drawable/shape_gray"
-            android:layout_marginLeft="10dp">
-            <ImageView
-                android:layout_width="60dp"
-                android:layout_height="50dp"
-                android:src="@drawable/building"
+                android:src="@drawable/ccms"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"/>
             <TextView
@@ -53,7 +33,7 @@
             android:layout_width="130dp"
             android:layout_height="100dp"
             android:orientation="vertical"
-            android:background="@drawable/shape_gray"
+            android:background="@drawable/all_feat_bg"
             android:layout_marginLeft="10dp">
             <ImageView
                 android:layout_width="60dp"
@@ -73,18 +53,18 @@
             android:layout_width="130dp"
             android:layout_height="100dp"
             android:orientation="vertical"
-            android:background="@drawable/shape_gray"
+            android:background="@drawable/all_feat_bg"
             android:layout_marginLeft="10dp">
             <ImageView
                 android:layout_width="60dp"
                 android:layout_height="50dp"
-                android:src="@drawable/calender_orange"
+                android:src="@drawable/metro_calendar"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Facilities Booking"
+                android:text="@string/facilities_booking"
                 android:textColor="@color/white"
                 android:textSize="16dp"
                 android:layout_gravity="center_horizontal"
@@ -97,36 +77,62 @@
             android:layout_width="130dp"
             android:layout_height="100dp"
             android:orientation="vertical"
-            android:background="@drawable/shape_gray"
-            android:layout_marginLeft="10dp"
-            android:gravity="center">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="BIM System"
-                android:textColor="@color/white"
-                android:textSize="16dp"
-                android:layout_gravity="center_horizontal"
-                android:maxLines="2"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="130dp"
-            android:layout_height="100dp"
-            android:orientation="vertical"
-            android:background="@drawable/shape_gray"
+            android:background="@drawable/all_feat_bg"
             android:layout_marginLeft="10dp">
             <ImageView
                 android:layout_width="60dp"
                 android:layout_height="50dp"
-                android:src="@drawable/setting"
+                android:src="@drawable/building"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Settings"
+                android:text="BIM"
+                android:textColor="@color/white"
+                android:textSize="21dp"
+                android:layout_gravity="center_horizontal"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="130dp"
+            android:layout_height="100dp"
+            android:orientation="vertical"
+            android:background="@drawable/all_feat_bg"
+            android:layout_marginLeft="10dp">
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:src="@drawable/toilet"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/smart_washroom"
+                android:textColor="@color/white"
+                android:textSize="16dp"
+                android:layout_gravity="center_horizontal"
+                android:maxLines="2"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="130dp"
+            android:layout_height="100dp"
+            android:orientation="vertical"
+            android:background="@drawable/all_feat_bg"
+            android:layout_marginLeft="10dp">
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:src="@drawable/locker"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/food_locker"
                 android:textColor="@color/white"
                 android:textSize="16dp"
                 android:layout_gravity="center_horizontal"

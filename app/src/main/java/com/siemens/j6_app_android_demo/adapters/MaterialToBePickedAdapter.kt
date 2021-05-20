@@ -51,14 +51,14 @@ class MaterialToBePickedAdapter(var list: ArrayList<Material>) : RecyclerView.Ad
             Target.SIZE_ORIGINAL,
             Target.SIZE_ORIGINAL
         ).into(holder.image)
-        holder.bg.setBackgroundColor(Color.parseColor(if (list[position].isSelected) "#f36f32" else "#454545"))
+        holder.bg.setBackgroundColor(Color.parseColor(if (list[position].isSelected) "#f36f32" else "#152341"))
         holder.bg.setOnClickListener {
             if (!list[position].isSelected) {
                 list[position].isSelected = true
                 holder.bg.setBackgroundColor(Color.parseColor("#f36f32"))
             } else {
                 list[position].isSelected = false
-                holder.bg.setBackgroundColor(Color.parseColor("#454545"))
+                holder.bg.setBackgroundColor(Color.parseColor("#152341"))
             }
             (holder.bg.context as SelectMaterialActivity).updateButtonColor()
         }

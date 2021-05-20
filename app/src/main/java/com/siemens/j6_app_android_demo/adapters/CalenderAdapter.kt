@@ -52,7 +52,7 @@ class CalenderAdapter(var list: List<Calendar>) : RecyclerView.Adapter<CalenderA
             holder.date.setTextColor(Color.parseColor("#000000"))
             holder.day.setTextColor(Color.parseColor("#000000"))
         } else {
-            holder.bg.setBackgroundColor(Color.parseColor("#1a1a1a"))
+            holder.bg.setBackgroundColor(Color.parseColor("#131320"))
             holder.date.setTextColor(Color.parseColor("#ffffff"))
             holder.day.setTextColor(Color.parseColor("#ffffff"))
         }

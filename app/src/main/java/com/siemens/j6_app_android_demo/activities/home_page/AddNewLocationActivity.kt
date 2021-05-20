@@ -103,12 +103,12 @@ class AddNewLocationActivity : AppCompatActivity(), LocationsCallback {
     override fun onLocationsResult(result: List<Location>) {
         locationList.addAll(result)
         for (loc in locationList) {
-            if (locationMap.containsKey(loc.building.id) && locationMap[loc.building.id]!!.containsKey(loc.level)) {
-                locationMap[loc.building.id]?.get(loc.level)?.add(loc)
-            } else if (locationMap.containsKey(loc.building.id)){
-                locationMap[loc.building.id]?.set(loc.level, arrayListOf(loc))
+            if (locationMap.containsKey(loc.building.name) && locationMap[loc.building.name]!!.containsKey(loc.level)) {
+                locationMap[loc.building.name]?.get(loc.level)?.add(loc)
+            } else if (locationMap.containsKey(loc.building.name)){
+                locationMap[loc.building.name]?.set(loc.level, arrayListOf(loc))
             } else {
-                locationMap.set(loc.building.id, hashMapOf(loc.level to arrayListOf<Location>(loc))) // HashMap<String, ArrayList<String>>()
+                locationMap.set(loc.building.name, hashMapOf(loc.level to arrayListOf(loc))) // HashMap<String, ArrayList<String>>()
             }
         }
         buildingList.addAll(ArrayList(locationMap.keys))

@@ -52,7 +52,7 @@ class LocationRecyclerViewAdapter(var list: ArrayList<Location>) : RecyclerView.
         holder.building.text = list[position].building.name
         holder.level.text = list[position].level
         holder.room.text = list[position].room
-        holder.bg.setBackgroundColor(Color.parseColor(if (list[position].isSelected) "#F36F32" else "#454545"))
+        holder.bg.setBackgroundColor(Color.parseColor(if (list[position].isSelected) "#F36F32" else "#152341"))
         holder.bg.setOnClickListener {
             notifyDataSetChanged()
             if (!list[position].isSelected) {
@@ -60,7 +60,7 @@ class LocationRecyclerViewAdapter(var list: ArrayList<Location>) : RecyclerView.
                 holder.bg.setBackgroundColor(Color.parseColor("#F36F32"))
             } else {
                 list[position].isSelected = false
-                holder.bg.setBackgroundColor(Color.parseColor("#454545"))
+                holder.bg.setBackgroundColor(Color.parseColor("#152341"))
             }
         }
         holder.deleteLoc.setOnClickListener {

@@ -14,7 +14,7 @@ data class WorkOrder(
         @SerializedName("tenant")
         val tenant: Tenant,
         @SerializedName("requestedAt")
-        val requestedAt: String,
+        var requestedAt: String,
         @SerializedName("category")
         val category: String,
         @SerializedName("desc") //category
@@ -24,13 +24,13 @@ data class WorkOrder(
         @SerializedName("comment") // no comment
         val comment: String,
         @SerializedName("plannedAt")
-        val plannedAt: String,
+        var plannedAt: String,
         @SerializedName("completedAt")
-        val completedAt: String,
+        var completedAt: String?,
         @SerializedName("issuedBy") // only use name for now
         val issuedBy: IssuedBy,
         @SerializedName("issuedAt")
-        val issuedAt: String,
+        var issuedAt: String,
         @SerializedName("approvalComment") // "Approval comment"
         val approvalComment: String,
 //        @SerializedName("approvedBy")

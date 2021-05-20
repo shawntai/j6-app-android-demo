@@ -15,7 +15,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="90dp"
-            android:background="@color/j6_gray"
+            android:background="@color/color_basic_700"
             android:orientation="vertical"
             android:layout_marginBottom="5dp">
             <FrameLayout
@@ -26,11 +26,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                     <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:padding="10dp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="10dp"
-                        android:src="@drawable/back"/>
+                        android:src="@drawable/back"
+                        android:onClick="finishThisActivity"/>
                     <View
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
@@ -130,14 +132,15 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="@color/j6_light_gray"/>
+                        android:background="@color/color_basic_1100"/>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="45dp">
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="3"
                             android:layout_marginStart="10dp"
                             android:text="Tenant: "
                             android:textColor="@color/white"
@@ -147,8 +150,9 @@
                             android:id="@+id/tenant"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
+                            android:layout_weight="7"
                             android:layout_marginEnd="10dp"
-                            android:layout_weight="1"
+                            android:textSize="17sp"
                             android:background="@null"
                             android:inputType="text"
                             android:textColor="@color/white"
@@ -157,13 +161,14 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="@color/j6_light_gray"/>
+                        android:background="@color/color_basic_1100"/>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="45dp">
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="3"
                             android:text="Unit: "
                             android:textColor="@color/white"
                             android:textSize="17sp"
@@ -171,27 +176,30 @@
 
                         <EditText
                             android:id="@+id/unit"
-                            android:layout_width="333dp"
+                            android:layout_width="0dp"
                             android:layout_height="match_parent"
+                            android:layout_weight="7"
                             android:layout_marginEnd="10dp"
-                            android:layout_weight="1"
                             android:background="@null"
                             android:inputType="text"
+                            android:textSize="17sp"
                             android:textColor="@color/white"
                             android:textStyle="bold" />
                     </LinearLayout>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="@color/j6_light_gray"/>
+                        android:background="@color/color_basic_1100"/>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="45dp">
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="3"
                             android:text="Contact Person: "
                             android:textColor="@color/white"
+                            android:layout_gravity="center_vertical"
                             android:textSize="17sp"
                             android:layout_marginStart="10dp"/>
                         <EditText
@@ -199,41 +207,44 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_marginEnd="10dp"
-                            android:layout_weight="1"
+                            android:layout_weight="7"
                             android:inputType="text"
                             android:textColor="@color/white"
+                            android:textSize="17sp"
                             android:textStyle="bold"
                             android:background="@null"/>
                     </LinearLayout>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="@color/j6_light_gray"/>
+                        android:background="@color/color_basic_1100"/>
                     <LinearLayout
                         android:id="@+id/select_request_time_btn"
                         android:layout_width="match_parent"
                         android:layout_height="45dp">
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="3"
                             android:text="Request Time:"
                             android:textColor="@color/white"
                             android:textSize="17sp"
+                            android:layout_gravity="center_vertical"
                             android:layout_marginStart="10dp"/>
                         <TextView
                             android:id="@+id/request_time_entered"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_marginEnd="10dp"
-                            android:layout_weight="1"
+                            android:layout_weight="6"
                             android:textColor="@color/white"
                             android:textStyle="bold"
                             android:textSize="17sp"
-                            android:paddingStart="10dp"
                             android:gravity="center_vertical" />
                         <ImageView
-                            android:layout_width="40dp"
+                            android:layout_width="0dp"
                             android:layout_height="40dp"
+                            android:layout_weight="1"
                             android:src="@drawable/down_arrow"
                             android:layout_gravity="center_vertical"/>
                     </LinearLayout>
@@ -268,14 +279,15 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="@color/j6_light_gray"/>
+                        android:background="@color/color_basic_1100"/>
                     <LinearLayout
                         android:id="@+id/select_category_btn"
                         android:layout_width="match_parent"
                         android:layout_height="45dp">
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="3"
                             android:text="Category: "
                             android:textColor="@color/white"
                             android:textSize="17sp"
@@ -286,39 +298,43 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_marginEnd="10dp"
-                            android:layout_weight="1"
+                            android:layout_weight="6"
                             android:textColor="@color/white"
                             android:textStyle="bold"
                             android:textSize="17sp"
-                            android:paddingStart="10dp"
                             android:gravity="center_vertical" />
                         <ImageView
-                            android:layout_width="40dp"
+                            android:layout_width="0dp"
                             android:layout_height="40dp"
+                            android:layout_weight="1"
                             android:src="@drawable/down_arrow"
                             android:layout_gravity="center_vertical"/>
                     </LinearLayout>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="@color/j6_light_gray"/>
+                        android:background="@color/color_basic_1100"/>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="45dp">
+
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Work Order (Details): "
-                            android:textColor="@color/white"
-                            android:textSize="17sp"
+                            android:layout_width="0dp"
+                            android:layout_height="45dp"
+                            android:layout_weight="3"
                             android:layout_marginStart="10dp"
-                            android:maxLines="2"/>
+                            android:scrollHorizontally="false"
+                            android:text="Work Order (Details): "
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@color/white"
+                            android:textSize="17sp" />
                         <EditText
                             android:id="@+id/work_order_details"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_marginEnd="10dp"
-                            android:layout_weight="1"
+                            android:textSize="17sp"
+                            android:layout_weight="7"
                             android:inputType="text"
                             android:textColor="@color/white"
                             android:textStyle="bold"
@@ -327,15 +343,16 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="@color/j6_light_gray"/>
+                        android:background="@color/color_basic_1100"/>
 
                     <LinearLayout
                         android:id="@+id/select_start_time_btn"
                         android:layout_width="match_parent"
                         android:layout_height="45dp">
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="3"
                             android:text="Planned Start Time: "
                             android:textColor="@color/white"
                             android:textSize="17sp"
@@ -346,30 +363,31 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_marginEnd="10dp"
-                            android:layout_weight="1"
+                            android:layout_weight="6"
                             android:textColor="@color/white"
                             android:textStyle="bold"
                             android:textSize="17sp"
-                            android:paddingStart="10dp"
                             android:gravity="center_vertical" />
                         <ImageView
-                            android:layout_width="40dp"
+                            android:layout_width="0dp"
                             android:layout_height="40dp"
+                            android:layout_weight="1"
                             android:src="@drawable/down_arrow"
                             android:layout_gravity="center_vertical"/>
                     </LinearLayout>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="@color/j6_light_gray"/>
+                        android:background="@color/color_basic_1100"/>
 
                     <LinearLayout
                         android:id="@+id/select_finish_time_btn"
                         android:layout_width="match_parent"
                         android:layout_height="45dp">
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="3"
                             android:text="Estimated Finish Time: "
                             android:textColor="@color/white"
                             android:textSize="17sp"
@@ -380,28 +398,29 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_marginEnd="10dp"
-                            android:layout_weight="1"
+                            android:layout_weight="6"
                             android:textColor="@color/white"
                             android:textStyle="bold"
                             android:textSize="17sp"
-                            android:paddingStart="10dp"
                             android:gravity="center_vertical" />
                         <ImageView
-                            android:layout_width="40dp"
+                            android:layout_width="0dp"
                             android:layout_height="40dp"
+                            android:layout_weight="1"
                             android:src="@drawable/down_arrow"
                             android:layout_gravity="center_vertical"/>
                     </LinearLayout>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="@color/j6_light_gray"/>
+                        android:background="@color/color_basic_1100"/>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="45dp">
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="3"
                             android:text="Issued By: "
                             android:textColor="@color/white"
                             android:textSize="17sp"
@@ -412,7 +431,7 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_marginEnd="10dp"
-                            android:layout_weight="1"
+                            android:layout_weight="7"
                             android:inputType="text"
                             android:textColor="@color/white"
                             android:textStyle="bold"
@@ -421,14 +440,15 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="@color/j6_light_gray"/>
+                        android:background="@color/color_basic_1100"/>
                     <LinearLayout
                         android:id="@+id/select_issued_time_btn"
                         android:layout_width="match_parent"
                         android:layout_height="45dp">
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="3"
                             android:text="Issued Time: "
                             android:textColor="@color/white"
                             android:textSize="17sp"
@@ -439,15 +459,15 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_marginEnd="10dp"
-                            android:layout_weight="1"
+                            android:layout_weight="6"
                             android:textColor="@color/white"
                             android:textStyle="bold"
                             android:textSize="17sp"
-                            android:paddingStart="10dp"
                             android:gravity="center_vertical" />
                         <ImageView
-                            android:layout_width="40dp"
+                            android:layout_width="0dp"
                             android:layout_height="40dp"
+                            android:layout_weight="1"
                             android:src="@drawable/down_arrow"
                             android:layout_gravity="center_vertical"/>
                     </LinearLayout>
@@ -457,7 +477,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="65dp"
                     android:layout_margin="5dp"
-                    android:background="@drawable/shape_gray_less_round">
+                    android:background="@drawable/shape_gray_less_round"
+                    android:visibility="visible">
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
@@ -504,7 +525,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="65dp"
                     android:layout_margin="5dp"
-                    android:background="@drawable/shape_gray_less_round">
+                    android:background="@drawable/shape_gray_less_round"
+                    android:visibility="visible">
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
@@ -818,14 +840,15 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="@color/j6_light_gray"/>
+                        android:background="@color/color_basic_1100"/>
                     <LinearLayout
                         android:id="@+id/enter_interruption_description"
                         android:layout_width="match_parent"
                         android:layout_height="80dp">
                         <TextView
-                            android:layout_width="110dp"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="3"
                             android:text="Interruption Description: "
                             android:textColor="@color/white"
                             android:textSize="17sp"
@@ -837,29 +860,31 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_marginEnd="10dp"
-                            android:layout_weight="1"
+                            android:layout_weight="6"
                             android:textColor="@color/white"
                             android:textStyle="bold"
                             android:textSize="17sp"
                             android:paddingStart="10dp"
                             android:gravity="center_vertical" />
                         <ImageView
-                            android:layout_width="40dp"
+                            android:layout_width="0dp"
                             android:layout_height="25dp"
+                            android:layout_weight="1"
                             android:src="@drawable/right_arrow"
                             android:layout_gravity="center_vertical"/>
                     </LinearLayout>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="@color/j6_light_gray"/>
+                        android:background="@color/color_basic_1100"/>
                     <LinearLayout
                         android:id="@+id/select_system_zone_btn"
                         android:layout_width="match_parent"
                         android:layout_height="45dp">
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="3"
                             android:text="System Zone: "
                             android:textColor="@color/white"
                             android:textSize="17sp"
@@ -870,29 +895,31 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_marginEnd="10dp"
-                            android:layout_weight="1"
+                            android:layout_weight="6"
                             android:textColor="@color/white"
                             android:textStyle="bold"
                             android:textSize="17sp"
                             android:paddingStart="10dp"
                             android:gravity="center_vertical" />
                         <ImageView
-                            android:layout_width="40dp"
+                            android:layout_width="0dp"
                             android:layout_height="40dp"
+                            android:layout_weight="1"
                             android:src="@drawable/down_arrow"
                             android:layout_gravity="center_vertical"/>
                     </LinearLayout>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="@color/j6_light_gray"/>
+                        android:background="@color/color_basic_1100"/>
                     <LinearLayout
                         android:id="@+id/select_tenant_interrupt_btn"
                         android:layout_width="match_parent"
                         android:layout_height="45dp">
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="3"
                             android:text="Interruption to tenant building: "
                             android:textColor="@color/white"
                             android:textSize="17sp"
@@ -903,29 +930,31 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_marginEnd="10dp"
-                            android:layout_weight="1"
+                            android:layout_weight="6"
                             android:textColor="@color/white"
                             android:textStyle="bold"
                             android:textSize="17sp"
                             android:paddingStart="10dp"
                             android:gravity="center_vertical" />
                         <ImageView
-                            android:layout_width="40dp"
+                            android:layout_width="0dp"
                             android:layout_height="40dp"
+                            android:layout_weight="1"
                             android:src="@drawable/down_arrow"
                             android:layout_gravity="center_vertical"/>
                     </LinearLayout>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="@color/j6_light_gray"/>
+                        android:background="@color/color_basic_1100"/>
                     <LinearLayout
                         android:id="@+id/select_sz_failure_btn"
                         android:layout_width="match_parent"
                         android:layout_height="45dp">
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="3"
                             android:text="System Zone Failure: "
                             android:textColor="@color/white"
                             android:textSize="17sp"
@@ -936,28 +965,30 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_marginEnd="10dp"
-                            android:layout_weight="1"
+                            android:layout_weight="6"
                             android:textColor="@color/white"
                             android:textStyle="bold"
                             android:textSize="17sp"
                             android:paddingStart="10dp"
                             android:gravity="center_vertical" />
                         <ImageView
-                            android:layout_width="40dp"
+                            android:layout_width="0dp"
                             android:layout_height="40dp"
+                            android:layout_weight="1"
                             android:src="@drawable/down_arrow"
                             android:layout_gravity="center_vertical"/>
                     </LinearLayout>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="@color/j6_light_gray"/>
+                        android:background="@color/color_basic_1100"/>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="45dp">
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="3"
                             android:text="Downtime: "
                             android:textColor="@color/white"
                             android:textSize="17sp"
@@ -967,7 +998,7 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_marginEnd="10dp"
-                            android:layout_weight="1"
+                            android:layout_weight="7"
                             android:inputType="text"
                             android:textColor="@color/white"
                             android:textStyle="bold"
@@ -976,14 +1007,15 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="@color/j6_light_gray"/>
+                        android:background="@color/color_basic_1100"/>
                     <LinearLayout
                         android:id="@+id/select_ws_failure_btn"
                         android:layout_width="match_parent"
                         android:layout_height="45dp">
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="3"
                             android:text="Whole System Failure: "
                             android:textColor="@color/white"
                             android:textSize="17sp"
@@ -994,15 +1026,16 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_marginEnd="10dp"
-                            android:layout_weight="1"
+                            android:layout_weight="6"
                             android:textColor="@color/white"
                             android:textStyle="bold"
                             android:textSize="17sp"
                             android:paddingStart="10dp"
                             android:gravity="center_vertical" />
                         <ImageView
-                            android:layout_width="40dp"
+                            android:layout_width="0dp"
                             android:layout_height="40dp"
+                            android:layout_weight="1"
                             android:src="@drawable/down_arrow"
                             android:layout_gravity="center_vertical"/>
                     </LinearLayout>
@@ -1034,13 +1067,18 @@
                             android:textSize="20sp"
                             android:textColor="@color/j6_light_orange"/>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/white"
-                            android:textSize="17sp"
-                            android:maxLines="1"
-                            android:text="Attachment"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/white"
+                                android:textSize="17sp"
+                                android:maxLines="1"
+                                android:text="Attachment"/>
+                        </LinearLayout>
                     </LinearLayout>
                     <ImageView
                         android:layout_width="25dp"
@@ -1077,15 +1115,16 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="@color/j6_light_gray"/>
+                        android:background="@color/color_basic_1100"/>
                     <LinearLayout
                         android:id="@+id/select_status_btn"
                         android:layout_width="match_parent"
                         android:layout_height="45dp">
                         <TextView
                             android:id="@+id/result_status"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="3"
                             android:text="Status: "
                             android:textColor="@color/white"
                             android:textSize="17sp"
@@ -1096,39 +1135,42 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_marginEnd="10dp"
-                            android:layout_weight="1"
+                            android:layout_weight="6"
                             android:textColor="@color/white"
                             android:textStyle="bold"
                             android:textSize="17sp"
-                            android:paddingStart="10dp"
                             android:gravity="center_vertical" />
                         <ImageView
-                            android:layout_width="40dp"
+                            android:layout_width="0dp"
                             android:layout_height="40dp"
+                            android:layout_weight="1"
                             android:src="@drawable/down_arrow"
                             android:layout_gravity="center_vertical"/>
                     </LinearLayout>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="@color/j6_light_gray"/>
+                        android:background="@color/color_basic_1100"/>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="45dp">
                         <TextView
                             android:id="@+id/result_remark"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="3"
                             android:text="Remark/Adhoc host: "
                             android:textColor="@color/white"
                             android:textSize="17sp"
+                            android:layout_gravity="center_vertical"
                             android:layout_marginStart="10dp"
                             android:maxLines="2"/>
                         <EditText
+                            android:id="@+id/remark"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_marginEnd="10dp"
-                            android:layout_weight="1"
+                            android:layout_weight="7"
                             android:inputType="text"
                             android:textColor="@color/white"
                             android:textStyle="bold"
@@ -1163,7 +1205,7 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="@color/j6_light_gray"/>
+                        android:background="@color/color_basic_1100"/>
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/feedback_recyclerview"
                         android:layout_width="match_parent"
@@ -1627,7 +1669,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/j6_light_gray"/>
+            android:background="@color/color_basic_1100"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -1638,7 +1680,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/j6_light_gray"/>
+            android:background="@color/color_basic_1100"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -1678,7 +1720,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/j6_light_gray"/>
+            android:background="@color/color_basic_1100"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -1689,7 +1731,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/j6_light_gray"/>
+            android:background="@color/color_basic_1100"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -1729,7 +1771,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/j6_light_gray"/>
+            android:background="@color/color_basic_1100"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -1740,7 +1782,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/j6_light_gray"/>
+            android:background="@color/color_basic_1100"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -1780,7 +1822,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/j6_light_gray"/>
+            android:background="@color/color_basic_1100"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -1791,7 +1833,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/j6_light_gray"/>
+            android:background="@color/color_basic_1100"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -1802,7 +1844,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/j6_light_gray"/>
+            android:background="@color/color_basic_1100"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -1813,7 +1855,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/j6_light_gray"/>
+            android:background="@color/color_basic_1100"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"

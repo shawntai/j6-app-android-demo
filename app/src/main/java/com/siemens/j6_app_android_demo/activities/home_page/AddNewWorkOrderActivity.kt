@@ -139,8 +139,8 @@ class AddNewWorkOrderActivity : AppCompatActivity(), TenantsCallback, WorkOrders
             findViewById<TextView>(R.id.sz_failure).text = workOrderImported!!.interruption.systemZoneFailureLevel
             findViewById<TextView>(R.id.ws_failure).text = workOrderImported!!.interruption.wholeSystemFailureLevel
 
-            findViewById<TextView>(R.id.result_status).text = workOrderImported!!.status
-            findViewById<TextView>(R.id.result_remark).text = workOrderImported!!.completion.remark
+            findViewById<TextView>(R.id.status).text = workOrderImported!!.status
+            findViewById<EditText>(R.id.remark).setText(workOrderImported!!.completion.remark)
 
             surveyList.clear()
             surveyList.addAll(workOrderImported!!.feedback.surveys)
@@ -608,9 +608,17 @@ class AddNewWorkOrderActivity : AppCompatActivity(), TenantsCallback, WorkOrders
         feedbackRecyclerView.layoutManager = layoutManager
         feedbackRecyclerView.itemAnimator = DefaultItemAnimator()
         feedbackRecyclerView.adapter = fAdapter
-        for (i in 1..6) {
-            if (surveyList.isEmpty()) {
-                surveyList.add(Survey("Feedback " + i.toString(), i - 1))
+        val surveyTitles = arrayOf(
+            "1. Provision of security and safety to assigned area",
+            "2. Time and attendance",
+            "3. Relationship with fellow employees",
+            "4. Knowledge and application of laws and regulations",
+            "5. Maintenance of equipment",
+            "6. Anticipation and action in emergency situations"
+        )
+        if (surveyList.isEmpty()) {
+            for (i in 0..5) {
+                surveyList.add(Survey(surveyTitles[i], i))
                 fAdapter.notifyDataSetChanged()
             }
         }
@@ -1027,5 +1035,9 @@ class AddNewWorkOrderActivity : AppCompatActivity(), TenantsCallback, WorkOrders
         systemZoneRV.adapter = systemZoneAdapter
         systemZoneList.addAll(result)
         systemZoneAdapter.notifyDataSetChanged()
+    }
+
+    fun finishThisActivity(view: View) {
+        finish()
     }
 }

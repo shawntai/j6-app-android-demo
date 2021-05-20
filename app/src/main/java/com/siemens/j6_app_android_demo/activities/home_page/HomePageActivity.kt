@@ -1,12 +1,15 @@
 package com.siemens.j6_app_android_demo.activities.home_page
 
+import android.Manifest
 import android.animation.LayoutTransition
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.Dialog
 import android.content.Intent
 import android.content.res.Resources
-import android.graphics.Typeface
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.DisplayMetrics
 import android.view.View
 import android.view.ViewGroup
@@ -18,15 +21,17 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
+import com.mapxus.map.mapxusmap.api.map.MapxusMapContext
 import com.siemens.j6_app_android_demo.R
 import com.siemens.j6_app_android_demo.adapters.CalenderAdapter
 import com.siemens.j6_app_android_demo.adapters.MaintenanceAdapter
+import com.siemens.j6_app_android_demo.dialog.AttendanceDialog
 import com.siemens.j6_app_android_demo.fragments.FavoriteFragment
 import com.siemens.j6_app_android_demo.fragments.SearchFragment
 import com.siemens.j6_app_android_demo.fragments.WorkOrderFragment
-import com.siemens.j6_app_android_demo.models.Location
 import com.siemens.j6_app_android_demo.models.MaintenanceDataModel
 import com.siemens.j6_app_android_demo.models.WorkOrder
+import pub.devrel.easypermissions.EasyPermissions
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -48,10 +53,17 @@ class HomePageActivity : AppCompatActivity() {
 
     var editedWorkOrderPosition = 0
 
+    var tabSelected = -1
+    val WORK_ORDER = 0
+    val SEARCH = 1
+    val FAVORITE = 2
+
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        MapxusMapContext.init(this)
         setContentView(R.layout.activity_home_page)
+        methodRequiresPermission()
 
         allFeatHoriz = findViewById(R.id.all_features_horiz_scroll)
         allFeatExp = findViewById(R.id.all_features_expanded)
@@ -60,14 +72,7 @@ class HomePageActivity : AppCompatActivity() {
         val scale: Float = resources.displayMetrics.density
         allFeatHorizHeight = (110 * scale + 0.5f).toInt()
         allFeatExpHeight = (360 * scale + 0.5f).toInt()
-        /*allFeatHorizHeight = allFeatHoriz.height
-        allFeatExpHeight = allFeatExp.height
-        print(">>>> hrz height = $allFeatHorizHeight")
-        print(">>>> exp height = $allFeatExpHeight")
-        Toast.makeText(this, "hh: " + allFeatHoriz.height + ", eh: " + allFeatExp.height, Toast.LENGTH_SHORT).show()
-        // hide allFeatExp in the beginning
-        allFeatExp.layoutParams = LinearLayout.LayoutParams(allFeatExp.width, 0)*/
-        datesRecyclerView = findViewById<RecyclerView>(R.id.dates_recyclerview)
+        datesRecyclerView = findViewById(R.id.dates_recyclerview)
         dAdapter = CalenderAdapter(datesList)
         val layoutManager = LinearLayoutManager(applicationContext)
         layoutManager.orientation = LinearLayoutManager.HORIZONTAL
@@ -76,20 +81,6 @@ class HomePageActivity : AppCompatActivity() {
         datesRecyclerView.adapter = dAdapter
         prepareDatesData()
         datesRecyclerView.scrollToPosition(Calendar.getInstance().get(Calendar.DAY_OF_MONTH) - 1)
-        /*dAdapter!!.setOnItemClickListener(object : CalenderAdapter.ClickListener {
-            override fun onItemClick(position: Int, v: View?) {
-                Toast.makeText(baseContext, position.toString(), Toast.LENGTH_SHORT).show()
-                Log.d("TAG", "#############$position")
-                /*//if (position+1 == datesList[position].get(Calendar.DAY_OF_MONTH)) {
-                //    Log.d("TAG", "#############Position+1: " + (position+1) + ", DoM: " + datesList[position].get(Calendar.DAY_OF_MONTH))
-                v?.setBackgroundResource(R.drawable.shape_orange)
-                Log.d("V", ((v as LinearLayout)[0] as TextView).text as String)
-                //dAdapter!!.notifyDataSetChanged()
-                //}*/
-                datesRecyclerView.scrollToPosition(position)
-            }
-
-        })*/
 
         mListView = findViewById(R.id.maintenance_listview)
         for (i in 1..5) {
@@ -106,12 +97,6 @@ class HomePageActivity : AppCompatActivity() {
         mListView.adapter = mAdapter
         // adjust listview height to prevent it from collapsing
         val totalHeight = (120 * scale + 0.5f).toInt() * mAdapter!!.count  // 120 => each item's height in dp
-        /*for (i in 0 until mAdapter!!.count) {
-            Log.d("mAdapter!!.count", mAdapter!!.count.toString())
-            val listItem: View = mAdapter!!.getView(i, null, mListView)
-            listItem.measure(0, 0)
-            totalHeight += listItem.measuredHeight
-        }*/
         //setting listview item in adapter
         val params: ViewGroup.LayoutParams = mListView.layoutParams
         params.height = totalHeight + mListView.dividerHeight * mAdapter!!.count
@@ -120,36 +105,88 @@ class HomePageActivity : AppCompatActivity() {
         // fragments
         loadFragment(WorkOrderFragment())
         findViewById<TextView>(R.id.work_order_butt).setOnClickListener {
-            updateFragButtonBackground(it)
-            loadFragment(WorkOrderFragment())
+            //updateFragButtonBackground(it)
+//            tabSelected = if (tabSelected != WORK_ORDER) WORK_ORDER else -1
+            if (tabSelected != WORK_ORDER) {
+                tabSelected = WORK_ORDER
+                expandWorkOrder()
+                loadFragment(WorkOrderFragment())
+                (it as TextView).setTextColor(getColor(R.color.j6_light_orange))
+            } else {
+                tabSelected = -1
+                minimizeWorkOrder()
+                (it as TextView).setTextColor(getColor(R.color.white))
+            }
+            updateFragButtonBackground()
+//            loadFragment(WorkOrderFragment())
         }
         findViewById<LinearLayout>(R.id.search_butt).setOnClickListener {
-            updateFragButtonBackground(it)
-            loadFragment(SearchFragment())
+
+            if (tabSelected != SEARCH) {
+                tabSelected = SEARCH
+                expandWorkOrder()
+                loadFragment(SearchFragment())
+            } else {
+                tabSelected = -1
+                minimizeWorkOrder()
+            }
+            updateFragButtonBackground()
         }
         findViewById<LinearLayout>(R.id.favorite_butt).setOnClickListener {
-            updateFragButtonBackground(it)
-            loadFragment(FavoriteFragment())
+            if (tabSelected != FAVORITE) {
+                tabSelected = FAVORITE
+                expandWorkOrder()
+                loadFragment(FavoriteFragment())
+            } else {
+                tabSelected = -1
+                minimizeWorkOrder()
+            }
+            updateFragButtonBackground()
         }
         findViewById<LinearLayout>(R.id.add_new_work_order).setOnClickListener {
             //startActivity(Intent(this, AddNewWorkOrderActivity::class.java))
             addNewWorkOrder.launch(Intent(this, AddNewWorkOrderActivity::class.java))
         }
+
+        findViewById<ImageView>(R.id.pfp).setOnClickListener {
+
+            val dialog = AttendanceDialog(this)
+            dialog.activity = this
+            dialog.show()
+        }
+
+        findViewById<View>(R.id.Chris).setOnClickListener {
+            val dialog = Dialog(this)
+            dialog.setContentView(R.layout.not_in_building_layout)
+            dialog.show()
+            Handler(Looper.getMainLooper()).postDelayed({
+                dialog.dismiss()
+            }, 5000)
+        }
     }
+
 
     private val addNewWorkOrder = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
             val nwo = Gson().fromJson(result.data!!.getStringExtra("nwo"), WorkOrder::class.java)
             //WorkOrderFragment().onNewWorkOrderAdded(nwo)
-            (supportFragmentManager.findFragmentById(R.id.fragment_placeholder) as WorkOrderFragment).onNewWorkOrderAdded(nwo)
-            expandWorkOrder(View(this))
+            (supportFragmentManager.findFragmentById(R.id.fragment_placeholder) as WorkOrderFragment).onNewWorkOrderAdded(
+                nwo
+            )
+            expandWorkOrder()
         }
     }
 
     val editWorkOrder = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
-            val woe = Gson().fromJson(result.data!!.getStringExtra("wo_edited"), WorkOrder::class.java)
-            (supportFragmentManager.findFragmentById(R.id.fragment_placeholder) as WorkOrderFragment).onWorkOrderEdited(woe, editedWorkOrderPosition)
+            val woe = Gson().fromJson(
+                result.data!!.getStringExtra("wo_edited"),
+                WorkOrder::class.java
+            )
+            (supportFragmentManager.findFragmentById(R.id.fragment_placeholder) as WorkOrderFragment).onWorkOrderEdited(
+                woe,
+                editedWorkOrderPosition
+            )
             //expandWorkOrder(View(this))
         }
     }
@@ -186,8 +223,7 @@ class HomePageActivity : AppCompatActivity() {
         }
     }
 
-    fun expandWorkOrder(view: View) {
-        val scale: Float = resources.displayMetrics.density
+    private fun expandWorkOrder() {
         val workOrder: LinearLayout = findViewById(R.id.work_order)
         workOrder.layoutTransition.enableTransitionType(LayoutTransition.CHANGING)
 
@@ -196,38 +232,27 @@ class HomePageActivity : AppCompatActivity() {
         val scrollPosition = IntArray(2)
         findViewById<ScrollView>(R.id.scroll_view).getLocationOnScreen(scrollPosition)
         val expandedHeight = screenHeight - scrollPosition[1] - getNavigationBarHeight()
-        if (params.height != expandedHeight) {
-            params.height = expandedHeight
-        } else {
-            params.height = (80 * scale + 0.5f).toInt()
-        }
+        params.height = expandedHeight
         workOrder.layoutParams = params
     }
+
+    private fun minimizeWorkOrder() {
+        val workOrder: LinearLayout = findViewById(R.id.work_order)
+        val params = workOrder.layoutParams
+        params.height = (80 * resources.displayMetrics.density + 0.5f).toInt()
+        workOrder.layoutParams = params
+        tabSelected = -1
+    }
+
 
     private fun loadFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().replace(R.id.fragment_placeholder, fragment).commit()
     }
 
-    private fun updateFragButtonBackground(clicked: View) {
-        /*if (findViewById<TextView>(R.id.work_order_butt) == clicked) {
-            findViewById<TextView>(R.id.work_order_butt).setBackgroundResource(R.drawable.shape_gray_rounder)
-        } else {
-            findViewById<TextView>(R.id.work_order_butt).setBackgroundResource(R.drawable.shape_darker_light_gray_two_corners)
-        }
-        if (findViewById<LinearLayout>(R.id.search_butt) == clicked) {
-            findViewById<LinearLayout>(R.id.search_butt).setBackgroundResource(R.drawable.shape_gray_rounder)
-        } else {
-            findViewById<LinearLayout>(R.id.search_butt).setBackgroundResource(R.drawable.shape_darker_light_gray_two_corners)
-        }
-        if (findViewById<LinearLayout>(R.id.favorite_butt) == clicked) {
-            findViewById<LinearLayout>(R.id.favorite_butt).setBackgroundResource(R.drawable.shape_gray_rounder)
-        } else {
-            findViewById<LinearLayout>(R.id.favorite_butt).setBackgroundResource(R.drawable.shape_darker_light_gray_two_corners)
-        }*/
-        findViewById<TextView>(R.id.work_order_butt).setBackgroundResource(R.drawable.shape_darker_light_gray_two_corners)
-        findViewById<LinearLayout>(R.id.search_butt).setBackgroundResource(R.drawable.shape_darker_light_gray_two_corners)
-        findViewById<LinearLayout>(R.id.favorite_butt).setBackgroundResource(R.drawable.shape_darker_light_gray_two_corners)
-        clicked.setBackgroundResource(R.drawable.shape_gray_rounder)
+    private fun updateFragButtonBackground() {
+        findViewById<TextView>(R.id.work_order_butt).setTextColor(if (tabSelected == WORK_ORDER) getColor(R.color.j6_light_orange) else getColor(R.color.white))
+        findViewById<ImageView>(R.id.search_butt_img).setImageResource(if (tabSelected == SEARCH) R.drawable.orange_mag_glass else R.drawable.white_mag_glass)
+        findViewById<ImageView>(R.id.favorite_butt_img).setImageResource(if (tabSelected == FAVORITE) R.drawable.orange_heart else R.drawable.white_heart)
     }
 
     private fun getNavigationBarHeight(): Int {
@@ -238,5 +263,23 @@ class HomePageActivity : AppCompatActivity() {
         val realHeight: Int = metrics.heightPixels
         return if (realHeight > usableHeight) realHeight - usableHeight else 0
     }
+
+    private fun methodRequiresPermission() {
+        val perms = arrayOf(
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.ACCESS_COARSE_LOCATION,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.READ_PHONE_STATE
+        )
+        for (i in perms.indices) {
+            if (!EasyPermissions.hasPermissions(this, perms[i])) {
+                EasyPermissions.requestPermissions(this, "request permission", 1010, perms[i])
+            }
+        }
+    }
+
+//    override fun onLocationProvided(location: IndoorLocation) {
+//        canTakeAttendance = location.building == "143859d5c0fd4d76ba5c650f707bdfe7" // AMC
+//    }
 
 }

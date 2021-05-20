@@ -30,9 +30,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:divider="@android:color/transparent"
-                android:dividerHeight="30.0sp"/>
+                android:dividerHeight="15sp"/>
         </LinearLayout>
-        <TextView
+        <!--<TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/work_order_completion"
@@ -54,6 +54,6 @@
                 android:divider="@android:color/transparent"
                 android:dividerHeight="30.0sp"/>
         </LinearLayout>
-        <include layout="@layout/new_work_order_button_shape"/>
+        <include layout="@layout/new_work_order_button_shape"/>-->
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

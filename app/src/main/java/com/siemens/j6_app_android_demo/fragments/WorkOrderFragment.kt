@@ -55,12 +55,12 @@ class WorkOrderFragment: Fragment(), WorkOrdersCallback {
         WorkOrderService.workOrdersListener = this
         WorkOrderService.fetchWorkOrdersData()
 
-        cListView = requireView().findViewById(R.id.completion_listview)
-        for (i in 1..2) {
-            completionList.add(WorkOrderCompletionDataModel("Clear Water Pump #12 Replacement", Calendar.getInstance(), "Chiller Plant Room, Building 1"))
-        }
-        cAdapter = WorkOrderCompletionAdapter(requireContext(), completionList)
-        cListView.adapter = cAdapter
+//        cListView = requireView().findViewById(R.id.completion_listview)
+//        for (i in 1..2) {
+//            completionList.add(WorkOrderCompletionDataModel("Clear Water Pump #12 Replacement", Calendar.getInstance(), "Chiller Plant Room, Building 1"))
+//        }
+//        cAdapter = WorkOrderCompletionAdapter(requireContext(), completionList)
+//        cListView.adapter = cAdapter
         // adjust ll height
         /*var appointmentLL: LinearLayout = findViewById(R.id.appointment_ll)
         appointmentLL.layoutParams = LinearLayout.LayoutParams(appointmentLL.width, ((120+30)*scale+0.5f).toInt() * appointmentList.size)
@@ -72,13 +72,20 @@ class WorkOrderFragment: Fragment(), WorkOrdersCallback {
         aParams.height = ((120+30)*scale+0.5f).toInt() * appointmentList.size
         appointmentLL.layoutParams = aParams
 
-        val completionLL: LinearLayout = requireView().findViewById(R.id.completion_ll)
-        val cParams = completionLL.layoutParams
-        cParams.height = ((120+30)*scale+0.5f).toInt() * completionList.size
-        completionLL.layoutParams = cParams
+//        val completionLL: LinearLayout = requireView().findViewById(R.id.completion_ll)
+//        val cParams = completionLL.layoutParams
+//        cParams.height = ((120+30)*scale+0.5f).toInt() * completionList.size
+//        completionLL.layoutParams = cParams
     }
 
     override fun onWorkOrdersResult(result: List<WorkOrder>) {
+        val monthNames = arrayOf("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December")
+        for (wo in result) {
+            if(wo.requestedAt != "") wo.requestedAt = monthNames[wo.requestedAt.substring(5, 7).toInt()-1].substring(0, 3) + " " + wo.requestedAt.substring(8, 10) + ", " + wo.requestedAt.subSequence(0, 4) + " " + wo.requestedAt.subSequence(11, 16)
+            if(wo.plannedAt != "") wo.plannedAt = monthNames[wo.plannedAt.substring(5, 7).toInt()-1].substring(0, 3) + " " + wo.plannedAt.substring(8, 10) + ", " + wo.plannedAt.subSequence(0, 4) + " " + wo.plannedAt.subSequence(11, 16)
+            if(wo.completedAt != null && wo.completedAt != "") wo.completedAt = monthNames[wo.completedAt!!.substring(5, 7).toInt()-1].substring(0, 3) + " " + wo.completedAt!!.substring(8, 10) + ", " + wo.completedAt!!.subSequence(0, 4) + " " + wo.completedAt!!.subSequence(11, 16)
+            if(wo.issuedAt != "") wo.issuedAt = monthNames[wo.issuedAt.substring(5, 7).toInt()-1].substring(0, 3) + " " + wo.issuedAt.substring(8, 10) + ", " + wo.issuedAt.subSequence(0, 4) + " " + wo.issuedAt.subSequence(11, 16)
+        }
         nwoappointmentList.addAll(result)
         //nwoaAdapter!!.notifyDataSetChanged()
         nwoaAdapter = NewWorkOrderAppointmentAdapter(requireContext(), nwoappointmentList)

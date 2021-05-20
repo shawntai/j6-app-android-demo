@@ -14,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="600dp"
             android:text="Search fragment"
-            android:background="#313131"
+            android:background="@color/color_basic_700"
             android:textColor="@color/white"
             android:gravity="center"/>
         <!--

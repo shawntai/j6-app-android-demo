@@ -14,35 +14,13 @@
             android:layout_height="100dp"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:background="@drawable/shape_gray"
+            android:background="@drawable/all_feat_bg"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp">
             <ImageView
                 android:layout_width="60dp"
                 android:layout_height="50dp"
-                android:src="@drawable/lightning"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="EMS"
-                android:textColor="@color/white"
-                android:textSize="21dp"
-                android:layout_gravity="center_horizontal"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:background="@drawable/shape_gray"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp">
-            <ImageView
-                android:layout_width="60dp"
-                android:layout_height="50dp"
-                android:src="@drawable/building"
+                android:src="@drawable/ccms"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"/>
             <TextView
@@ -53,17 +31,12 @@
                 android:textSize="21dp"
                 android:layout_gravity="center_horizontal"/>
         </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp">
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="100dp"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:background="@drawable/shape_gray"
+            android:background="@drawable/all_feat_bg"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp">
             <ImageView
@@ -80,18 +53,23 @@
                 android:textSize="21dp"
                 android:layout_gravity="center_horizontal"/>
         </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp">
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="100dp"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:background="@drawable/shape_gray"
+            android:background="@drawable/all_feat_bg"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp">
             <ImageView
                 android:layout_width="60dp"
                 android:layout_height="50dp"
-                android:src="@drawable/calender_orange"
+                android:src="@drawable/metro_calendar"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"/>
             <TextView
@@ -106,6 +84,28 @@
                 android:layout_marginRight="12dp"
                 android:gravity="center"/>
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:background="@drawable/all_feat_bg"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp">
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:src="@drawable/building"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BIM"
+                android:textColor="@color/white"
+                android:textSize="21dp"
+                android:layout_gravity="center_horizontal"/>
+        </LinearLayout>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -116,41 +116,45 @@
             android:layout_height="100dp"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:background="@drawable/shape_gray"
+            android:background="@drawable/all_feat_bg"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp">
             <ImageView
                 android:layout_width="60dp"
                 android:layout_height="50dp"
-                android:src="@drawable/lightning"
+                android:src="@drawable/toilet"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="BIM System"
+                android:text="@string/smart_washroom"
                 android:textColor="@color/white"
-                android:textSize="21dp"
-                android:layout_gravity="center_horizontal"/>
+                android:textSize="16dp"
+                android:layout_gravity="center_horizontal"
+                android:maxLines="2"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:gravity="center"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="100dp"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:background="@drawable/shape_gray"
+            android:background="@drawable/all_feat_bg"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp">
             <ImageView
                 android:layout_width="60dp"
                 android:layout_height="50dp"
-                android:src="@drawable/setting"
+                android:src="@drawable/locker"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Settings"
+                android:text="@string/food_locker"
                 android:textColor="@color/white"
                 android:textSize="21dp"
                 android:layout_gravity="center_horizontal"/>

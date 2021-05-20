@@ -60,7 +60,7 @@ class NewWorkOrderAppointmentAdapter(private val context: Context, private val a
         if (arrayList[position].locations.isNotEmpty()) {
             place.text = arrayList[position].locations[0].room + ", " + arrayList[position].locations[0].level + ", " + arrayList[position].locations[0].building.name
         }        //image.setImageResource(arrayList[position].img)
-        Glide.with(image.context).load(arrayList[position].imgUrl).fitCenter().override(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL).into(image)
+        //Glide.with(image.context).load(arrayList[position].imgUrl).fitCenter().override(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL).into(image)
         convertView.setOnClickListener {
             val context = convertView.context as HomePageActivity
             context.editedWorkOrderPosition = position

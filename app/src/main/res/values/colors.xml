@@ -10,8 +10,12 @@
 
     <color name="j6_black">#1a1a1a</color>
     <color name="j6_dark_orange">#FD4F1E</color>
-    <color name="j6_gray">#454545</color>
+    <color name="j6_gray">#152341</color>
     <color name="j6_light_gray">#afafaf</color>
     <color name="j6_light_orange">#F36F32</color>
     <color name="date_from_other_months">#AAAAAA</color>
+
+    <color name="color_basic_900">#131320</color>
+    <color name="color_basic_700">#152341</color>
+    <color name="color_basic_1100">#0E0D13</color>
 </resources>

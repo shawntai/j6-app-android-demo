@@ -4,7 +4,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="5dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
     app:dragEdge="right">
 
     <include
@@ -41,7 +44,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/j6_light_gray"/>
+            android:background="@color/color_basic_1100"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="45dp">
@@ -67,7 +70,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/j6_light_gray"/>
+            android:background="@color/color_basic_1100"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="45dp">
@@ -93,7 +96,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/j6_light_gray"/>
+            android:background="@color/color_basic_1100"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="45dp">
@@ -120,7 +123,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/j6_light_gray"/>
+            android:background="@color/color_basic_1100"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="45dp">
