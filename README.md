@@ -1,3 +1,6 @@
+# Background
+J6 is a facility management app developed by Siemens. Its main functionality currently include displaying work orders, creating new work orders, editing existing ones, and taking attendance.
+
 # HomePageActivity.kt
 The landing page of the app. At the bottom of the screen is an expansive layout where all work orders are shown. The layout contains various tabs, each loading a corresponding fragment. For example, on tapping “Work Order”, the `WorkOrderFragment` is loaded as so:
 `loadFragment(WorkOrderFragment())`
