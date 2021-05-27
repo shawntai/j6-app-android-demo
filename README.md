@@ -132,8 +132,8 @@ class AttendanceDialog(context: Context) : Dialog(context), OnMapxusMapReadyCall
         p0!!.setLocationProvider(mapxusPositioningProvider)
     }     
     override fun onLocationProvided(location: IndoorLocation) {
-    // current location gotten, check if in AMC building
-            canTakeAttendance = location.building == "143859d5c0fd4d76ba5c650f707bdfe7" // AMC
+        // current location gotten, check if in AMC building
+        canTakeAttendance = location.building == "143859d5c0fd4d76ba5c650f707bdfe7" // AMC
     }
 	...
 }
