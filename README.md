@@ -1,5 +1,5 @@
 # HomePageActivity.kt
-The landing page of the app. At the bottom of the screen is an expansive layout where all work orders are shown. The layout contains various tabs, each loading a corresponding fragment. For example, on tapping “Work Order”, the WorkOrderFragment is loaded as so:
+The landing page of the app. At the bottom of the screen is an expansive layout where all work orders are shown. The layout contains various tabs, each loading a corresponding fragment. For example, on tapping “Work Order”, the `WorkOrderFragment` is loaded as so:
 `loadFragment(WorkOrderFragment())`
 
 # WorkOrderFragment.kt
@@ -59,6 +59,7 @@ class WorkOrderActivity : CategoriesCallback {
 ```
 
 - Date/time selection
+
 This pops up a window for date and time selection. Worth noting that there are several time-related fields, including requested time, estimated time, issued time, etc., so there are four time selection modes represented by four constants, namely
     - private val SELECT_START_TIME = 0
     - private val SELECT_FINISH_TIME = 1
@@ -66,6 +67,7 @@ This pops up a window for date and time selection. Worth noting that there are s
     - private val SELECT_REQUEST_TIME = 3
 
 - Autofill 
+
 There are some fields that are filled automatically. For example, for the “Contact Information” category, the name of the tenant is an AutoCompleteTextView, where the available options are fetched via the API. Once a tenant is selected, the “Unit” and “Contact Person” fields, which are associated with the tenant, will automatically be filled in.
 ```
 val tenant_actv = findViewById<AutoCompleteTextView>(R.id.tenant)
