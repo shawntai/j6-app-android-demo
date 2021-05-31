@@ -149,7 +149,7 @@ dialog.show()
 ```
 # To-do list
 - Add multi-langauge support
-- The functionality of editing work orders is not working and should be fixed. The changes are not being updated to the database. Might need to take a look at how the PATCH request is written in `WorkOrderService.kt`
+- The function to edit work orders is not working and should be fixed. The changes are not being updated to the database. Might need to take a look at how the PATCH request is written in `WorkOrderService.kt`
 
 
 
