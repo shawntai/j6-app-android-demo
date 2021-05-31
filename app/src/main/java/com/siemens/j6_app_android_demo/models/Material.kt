@@ -21,5 +21,5 @@ data class Material(
     @SerializedName("imageUrl")
     var imageUrl: String
 ): Serializable {
-    var isSelected = false
+    var isSelected = true
 }

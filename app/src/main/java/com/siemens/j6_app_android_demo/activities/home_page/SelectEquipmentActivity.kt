@@ -58,14 +58,16 @@ class SelectEquipmentActivity : AppCompatActivity() {
     }
     private val addEquipment = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
-            val equipToAdd = result.data!!.getSerializableExtra("equip") as Equipment
-            var alreadyAdded = false
-            for (equip in equipmentList)
-                if (equip.eid == equipToAdd.eid)
-                    alreadyAdded = true
-            if (!alreadyAdded) {
-                equipmentList.add(equipToAdd)
-                dAdapter.notifyDataSetChanged()
+            val equipToAdd = result.data!!.getSerializableExtra("equip") as Equipment?
+            equipToAdd?.let {
+                var alreadyAdded = false
+                for (equip in equipmentList)
+                    if (equip.eid == equipToAdd.eid)
+                        alreadyAdded = true
+                if (!alreadyAdded) {
+                    equipmentList.add(equipToAdd)
+                    dAdapter.notifyDataSetChanged()
+                }
             }
         }
     }

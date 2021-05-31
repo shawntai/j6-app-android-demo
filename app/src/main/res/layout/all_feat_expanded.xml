@@ -78,7 +78,7 @@
                 android:text="Facilities Booking"
                 android:textColor="@color/white"
                 android:textSize="16dp"
-                android:layout_gravity="center_horizontal"
+                android:layout_gravity="center"
                 android:maxLines="2"
                 android:layout_marginLeft="12dp"
                 android:layout_marginRight="12dp"
@@ -95,7 +95,7 @@
             <ImageView
                 android:layout_width="60dp"
                 android:layout_height="50dp"
-                android:src="@drawable/building"
+                android:src="@drawable/bim"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"/>
             <TextView
@@ -131,7 +131,7 @@
                 android:text="@string/smart_washroom"
                 android:textColor="@color/white"
                 android:textSize="16dp"
-                android:layout_gravity="center_horizontal"
+                android:layout_gravity="center"
                 android:maxLines="2"
                 android:layout_marginLeft="12dp"
                 android:layout_marginRight="12dp"

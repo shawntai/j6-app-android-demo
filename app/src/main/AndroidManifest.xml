@@ -28,9 +28,6 @@
             android:name=".activities.home_page.SelectEquipmentActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".activities.home_page.InterruptDescriptionActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity
             android:name=".activities.home_page.AddNewMaterialActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
@@ -46,7 +43,7 @@
             android:name=".activities.home_page.AddNewLocationActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
         <activity
-            android:name=".activities.home_page.AddNewWorkOrderActivity"
+            android:name=".activities.home_page.WorkOrderActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
         <activity
             android:name=".activities.home_page.SplashScreenActivity"

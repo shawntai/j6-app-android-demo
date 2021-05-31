@@ -8,7 +8,26 @@
     android:layout_marginTop="35dp"
     app:dragEdge="right">
 
-    <include android:id="@+id/second" layout="@layout/second_layout"/>
+    <LinearLayout
+        android:id="@+id/delete"
+        android:layout_width="120dp"
+        android:layout_height="95dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:src="@drawable/delete"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/white"/>
+    </LinearLayout>
 
     <include layout="@layout/loc_lv_item"/>
 

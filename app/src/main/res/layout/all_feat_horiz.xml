@@ -82,7 +82,7 @@
             <ImageView
                 android:layout_width="60dp"
                 android:layout_height="50dp"
-                android:src="@drawable/building"
+                android:src="@drawable/bim"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"/>
             <TextView

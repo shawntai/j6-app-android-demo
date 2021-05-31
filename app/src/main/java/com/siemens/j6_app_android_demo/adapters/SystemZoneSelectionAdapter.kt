@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.siemens.j6_app_android_demo.R
-import com.siemens.j6_app_android_demo.activities.home_page.AddNewWorkOrderActivity
+import com.siemens.j6_app_android_demo.activities.home_page.WorkOrderActivity
 import com.siemens.j6_app_android_demo.models.SystemZone
 import java.util.*
 
@@ -36,7 +36,7 @@ class SystemZoneSelectionAdapter(var list: ArrayList<SystemZone>) : RecyclerView
         holder.optionName.text = list[position].name
         holder.optionName.setTextColor(Color.parseColor(if(list[position].isSelected) "#F36F32" else "#ffffff"))
         holder.optionName.setOnClickListener {
-            (holder.optionName.context as AddNewWorkOrderActivity).findViewById<TextView>(R.id.system_zone).text = holder.optionName.text
+            (holder.optionName.context as WorkOrderActivity).findViewById<TextView>(R.id.system_zone).text = holder.optionName.text
 //            holder.optionName.setTextColor(Color.parseColor("#F36F32"))
             for (sz in list)
                 sz.isSelected = false

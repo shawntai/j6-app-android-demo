@@ -15,7 +15,7 @@ data class Location(
     @SerializedName("room")
     val room: String
 ): Serializable {
-    var isSelected = false
+    var isSelected = true
     fun getId(): String {
         return building.id + level + room
     }

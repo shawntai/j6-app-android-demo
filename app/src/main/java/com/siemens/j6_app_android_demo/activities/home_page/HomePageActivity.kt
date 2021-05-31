@@ -145,7 +145,7 @@ class HomePageActivity : AppCompatActivity() {
         }
         findViewById<LinearLayout>(R.id.add_new_work_order).setOnClickListener {
             //startActivity(Intent(this, AddNewWorkOrderActivity::class.java))
-            addNewWorkOrder.launch(Intent(this, AddNewWorkOrderActivity::class.java))
+            addNewWorkOrder.launch(Intent(this, WorkOrderActivity::class.java))
         }
 
         findViewById<ImageView>(R.id.pfp).setOnClickListener {

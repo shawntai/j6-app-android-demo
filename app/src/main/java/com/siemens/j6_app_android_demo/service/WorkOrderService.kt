@@ -7,7 +7,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.GET
+import retrofit2.http.*
 
 
 interface EmployeesCallback {
@@ -30,8 +30,16 @@ interface EquipmentsCallback {
     fun onEquipmentsResult(result: List<Equipment>)
 }
 
-interface WorkOrdersCallback {
+interface FetchWorkOrdersCallback {
     fun onWorkOrdersResult(result: List<WorkOrder>)
+}
+
+interface CreateWorkOrderCallBack {
+    fun onWorkOrderCreated(workOrder: WorkOrder)
+}
+
+interface UpdateWorkOrderCallBack {
+    fun onWorkOrderUpdated(workOrder: WorkOrder)
 }
 
 interface CategoriesCallback {
@@ -55,6 +63,10 @@ interface WorkOrderAPI {
     fun getEquipments(): Call<List<Equipment>>
     @GET("/workorder")
     fun getWorkOrders(): Call<List<WorkOrder>>
+    @POST("/workorder")
+    fun createWOrkOrder(@Body newWorkOrder: WorkOrder): Call<WorkOrder>
+    @PATCH("/workorder/{id}/")
+    fun updateWorkOrder(@Path("id") id: Int, @Body updatedWorkOrder: WorkOrder): Call<WorkOrder>
     @GET("/category")
     fun getCategories(): Call<List<String>>
     @GET("/systemzone")
@@ -73,7 +85,9 @@ object WorkOrderService {
     var locationsListener: LocationsCallback? = null
     var tenantsListener: TenantsCallback? = null
     var equipmentsListener: EquipmentsCallback? = null
-    var workOrdersListener: WorkOrdersCallback? = null
+    var fetchWorkOrdersListener: FetchWorkOrdersCallback? = null
+    var createWorkOrderCallBack: CreateWorkOrderCallBack? = null
+    var updateWorkOrderCallBack: UpdateWorkOrderCallBack? = null
     var categoriesListener: CategoriesCallback? = null
     var systemZonesListener: SystemZonesCallback? = null
 
@@ -168,13 +182,45 @@ object WorkOrderService {
         call.enqueue(object : Callback<List<WorkOrder>> {
             override fun onResponse(call: Call<List<WorkOrder>>, response: Response<List<WorkOrder>>) {
                 if (response.code() == 200) {
-                    workOrdersListener?.onWorkOrdersResult(response.body()!!)
+                    fetchWorkOrdersListener?.onWorkOrdersResult(response.body()!!)
                 }
             }
 
             override fun onFailure(call: Call<List<WorkOrder>>, t: Throwable) {
+            }
+        })
+    }
+
+    fun createWorkOrder(newWorkOrder: WorkOrder) {
+        val call = service.createWOrkOrder(newWorkOrder)
+        call.enqueue(object : Callback<WorkOrder> {
+            override fun onResponse(call: Call<WorkOrder>, response: Response<WorkOrder>) {
+                if (response.code() == 200) {
+                    createWorkOrderCallBack?.onWorkOrderCreated(response.body()!!)
+                }
+            }
+
+            override fun onFailure(call: Call<WorkOrder>, t: Throwable) {
                 Log.d("AsiaSiemens2021", "onFailure: " + t.message)
             }
+
+        })
+    }
+
+    fun updateWorkOrder(id: Int, updatedWorkOrder: WorkOrder) {
+        val call = service.updateWorkOrder(id, updatedWorkOrder)
+        call.enqueue(object : Callback<WorkOrder> {
+            override fun onResponse(call: Call<WorkOrder>, response: Response<WorkOrder>) {
+                if (response.code() == 200) {
+                    updateWorkOrderCallBack?.onWorkOrderUpdated(response.body()!!)
+                    Log.d(TAG, "WO UPDATED!!")
+                }
+            }
+
+            override fun onFailure(call: Call<WorkOrder>, t: Throwable) {
+                Log.d("AsiaSiemens2021", "onFailure: " + t.message)
+            }
+
         })
     }
 
@@ -182,6 +228,7 @@ object WorkOrderService {
         val call = service.getCategories()
         call.enqueue(object : Callback<List<String>> {
             override fun onResponse(call: Call<List<String>>, response: Response<List<String>>) {
+                Log.d("AsiaSiemens2021", "onResponse: ")
                 if (response.code() == 200) {
                     categoriesListener?.onCategoriesResult(response.body()!!)
                 }

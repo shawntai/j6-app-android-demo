@@ -4,10 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.ImageView
-import android.widget.ListView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import com.siemens.j6_app_android_demo.R
 import com.siemens.j6_app_android_demo.adapters.BuildingAdapter
 import com.siemens.j6_app_android_demo.adapters.LevelAdapter
@@ -63,9 +60,9 @@ class AddNewLocationActivity : AppCompatActivity(), LocationsCallback {
         roomLV = findViewById(R.id.room_listview)
         roomLV.adapter = RoomAdapter(this, roomList)
 
-        val xbb = findViewById<ImageView>(R.id.expand_building_btn)
-        val xlb = findViewById<ImageView>(R.id.expand_level_btn)
-        val xrb = findViewById<ImageView>(R.id.expand_room_btn)
+        val xbb = findViewById<LinearLayout>(R.id.expand_building_btn)
+        val xlb = findViewById<LinearLayout>(R.id.expand_level_btn)
+        val xrb = findViewById<LinearLayout>(R.id.expand_room_btn)
 
         val expandBtnToLV = hashMapOf(xbb to buildingLV, xlb to levelLV, xrb to roomLV)
         for ((expandBtn, _) in expandBtnToLV) {
@@ -79,6 +76,14 @@ class AddNewLocationActivity : AppCompatActivity(), LocationsCallback {
                     expandBtnToLV[expandBtn]!!.visibility = View.VISIBLE
                 }
             }
+        }
+
+        findViewById<ImageView>(R.id.back).setOnClickListener {
+            val nullLoc: Location? = null
+            val resultIntent = Intent()
+            resultIntent.putExtra("loc", nullLoc)
+            setResult(RESULT_OK, resultIntent)
+            finish()
         }
 
         findViewById<TextView>(R.id.save_btn).setOnClickListener {

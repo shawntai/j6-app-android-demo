@@ -8,7 +8,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".activities.home_page.AddNewWorkOrderActivity"
+        tools:context=".activities.home_page.WorkOrderActivity"
         android:orientation="vertical"
         android:background="@color/j6_black">
 
@@ -107,12 +107,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_margin="5dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="15dp"
                     android:background="@drawable/shape_gray_less_round"
                     android:visibility="visible">
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="45dp">
+                        android:layout_height="43dp">
                         <ImageView
                             android:layout_width="20dp"
                             android:layout_height="match_parent"
@@ -133,18 +135,47 @@
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:background="@color/color_basic_1100"/>
+
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="45dp">
+                        android:layout_height="43dp">
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="3"
-                            android:layout_marginStart="10dp"
+                            android:text="Record Name: "
+                            android:textColor="@color/white"
+                            android:textSize="17sp"
+                            android:layout_marginStart="10dp"/>
+                        <EditText
+                            android:id="@+id/record_name"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="10dp"
+                            android:textSize="17sp"
+                            android:layout_weight="7"
+                            android:inputType="text"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:background="@null"/>
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/color_basic_1100"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="43dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3"
                             android:text="Tenant: "
                             android:textColor="@color/white"
-                            android:textSize="17sp" />
+                            android:textSize="17sp"
+                            android:layout_marginStart="10dp" />
 
                         <AutoCompleteTextView
                             android:id="@+id/tenant"
@@ -164,7 +195,7 @@
                         android:background="@color/color_basic_1100"/>
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="45dp">
+                        android:layout_height="43dp">
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -192,7 +223,7 @@
                         android:background="@color/color_basic_1100"/>
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="45dp">
+                        android:layout_height="43dp">
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -221,7 +252,7 @@
                     <LinearLayout
                         android:id="@+id/select_request_time_btn"
                         android:layout_width="match_parent"
-                        android:layout_height="45dp">
+                        android:layout_height="43dp">
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -254,12 +285,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_margin="5dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="15dp"
                     android:background="@drawable/shape_gray_less_round"
                     android:visibility="visible">
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="45dp">
+                        android:layout_height="43dp">
                         <ImageView
                             android:layout_width="20dp"
                             android:layout_height="match_parent"
@@ -283,7 +316,7 @@
                     <LinearLayout
                         android:id="@+id/select_category_btn"
                         android:layout_width="match_parent"
-                        android:layout_height="45dp">
+                        android:layout_height="43dp">
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -316,7 +349,7 @@
                         android:background="@color/color_basic_1100"/>
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="45dp">
+                        android:layout_height="60dp">
 
                         <TextView
                             android:layout_width="0dp"
@@ -348,7 +381,7 @@
                     <LinearLayout
                         android:id="@+id/select_start_time_btn"
                         android:layout_width="match_parent"
-                        android:layout_height="45dp">
+                        android:layout_height="60dp">
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -383,7 +416,7 @@
                     <LinearLayout
                         android:id="@+id/select_finish_time_btn"
                         android:layout_width="match_parent"
-                        android:layout_height="45dp">
+                        android:layout_height="60dp">
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -416,7 +449,7 @@
                         android:background="@color/color_basic_1100"/>
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="45dp">
+                        android:layout_height="43dp">
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -444,7 +477,7 @@
                     <LinearLayout
                         android:id="@+id/select_issued_time_btn"
                         android:layout_width="match_parent"
-                        android:layout_height="45dp">
+                        android:layout_height="43dp">
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -475,14 +508,16 @@
                 <LinearLayout
                     android:id="@+id/select_location"
                     android:layout_width="match_parent"
-                    android:layout_height="65dp"
-                    android:layout_margin="5dp"
+                    android:layout_height="76dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="15dp"
                     android:background="@drawable/shape_gray_less_round"
                     android:visibility="visible">
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:src="@drawable/nwo_location"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:src="@drawable/pin"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="15dp"/>
                     <LinearLayout
@@ -497,7 +532,8 @@
                             android:layout_weight="1"
                             android:text="Location"
                             android:gravity="center"
-                            android:textSize="20sp"
+                            android:textSize="22sp"
+                            android:textStyle="bold"
                             android:textColor="@color/j6_light_orange"/>
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -523,14 +559,16 @@
                 <LinearLayout
                     android:id="@+id/select_employees"
                     android:layout_width="match_parent"
-                    android:layout_height="65dp"
-                    android:layout_margin="5dp"
+                    android:layout_height="76dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="15dp"
                     android:background="@drawable/shape_gray_less_round"
                     android:visibility="visible">
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:src="@drawable/employee_icon"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:src="@drawable/emp_icon"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="15dp"/>
                     <LinearLayout
@@ -545,7 +583,8 @@
                             android:layout_weight="1"
                             android:text="Employee"
                             android:gravity="center"
-                            android:textSize="20sp"
+                            android:textSize="22sp"
+                            android:textStyle="bold"
                             android:textColor="@color/j6_light_orange"/>
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -571,13 +610,15 @@
                 <LinearLayout
                     android:id="@+id/select_material"
                     android:layout_width="match_parent"
-                    android:layout_height="65dp"
-                    android:layout_margin="5dp"
+                    android:layout_height="76dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="15dp"
                     android:background="@drawable/shape_gray_less_round">
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:src="@drawable/employee_icon"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:src="@drawable/add_obj"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="15dp"/>
                     <LinearLayout
@@ -592,7 +633,8 @@
                             android:layout_weight="1"
                             android:text="Material"
                             android:gravity="center"
-                            android:textSize="20sp"
+                            android:textSize="22sp"
+                            android:textStyle="bold"
                             android:textColor="@color/j6_light_orange"/>
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -604,7 +646,7 @@
                                 android:textColor="@color/white"
                                 android:textSize="17sp"
                                 android:maxLines="1"
-                                android:text="@string/employee_department_position"/>
+                                android:text="Edit materials"/>
                         </LinearLayout>
                     </LinearLayout>
                     <ImageView
@@ -614,167 +656,18 @@
                         android:layout_marginRight="15dp"
                         android:layout_gravity="center_vertical"/>
                 </LinearLayout>
-                <!--<LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/shape_gray_less_round"
-                    android:visibility="visible">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="45dp">
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="match_parent"
-                            android:layout_marginStart="10dp"
-                            android:src="@drawable/task_detail"/>
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Material"
-                            android:textColor="#F36F32"
-                            android:textSize="20sp"
-                            android:textStyle="bold"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_gravity="center_vertical"/>
-                    </LinearLayout>
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/j6_light_gray"/>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="45dp">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Description: "
-                            android:textColor="@color/white"
-                            android:textSize="17sp"
-                            android:layout_marginStart="10dp"
-                            android:layout_gravity="center_vertical"/>
-                        <TextView
-                            android:id="@+id/mat_name"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_marginEnd="10dp"
-                            android:layout_weight="1"
-                            android:textColor="@color/white"
-                            android:textStyle="bold"
-                            android:textSize="17sp"
-                            android:paddingStart="10dp"
-                            android:gravity="center_vertical" />
-                        <ImageView
-                            android:id="@+id/select_material"
-                            android:layout_width="40dp"
-                            android:layout_height="25dp"
-                            android:src="@drawable/right_arrow"
-                            android:layout_gravity="center_vertical"/>
-                    </LinearLayout>
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/j6_light_gray"/>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="45dp">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Code: "
-                            android:textColor="@color/white"
-                            android:textSize="17sp"
-                            android:layout_gravity="center"
-                            android:layout_marginStart="10dp"
-                            android:maxLines="2"/>
-                        <TextView
-                            android:id="@+id/code"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_marginEnd="10dp"
-                            android:layout_weight="1"
-                            android:layout_gravity="center"
-                            android:textSize="17sp"
-                            android:paddingStart="10dp"
-                            android:gravity="center_vertical"
-                            android:textColor="@color/white"
-                            android:textStyle="bold"
-                            android:background="@null"/>
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/j6_light_gray"/>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="45dp">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Qty: "
-                            android:textColor="@color/white"
-                            android:textSize="17sp"
-                            android:layout_gravity="center"
-                            android:layout_marginStart="10dp"
-                            android:maxLines="2"/>
-                        <TextView
-                            android:id="@+id/qty"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_marginEnd="10dp"
-                            android:layout_weight="1"
-                            android:layout_gravity="center"
-                            android:textSize="17sp"
-                            android:paddingStart="10dp"
-                            android:gravity="center_vertical"
-                            android:textColor="@color/white"
-                            android:textStyle="bold"
-                            android:background="@null"/>
-                    </LinearLayout>
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/j6_light_gray"/>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="45dp">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Total Price ($HKD): "
-                            android:textColor="@color/white"
-                            android:textSize="17sp"
-                            android:layout_gravity="center"
-                            android:layout_marginStart="10dp"
-                            android:maxLines="2"/>
-                        <TextView
-                            android:id="@+id/totalPrice"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_marginEnd="10dp"
-                            android:layout_weight="1"
-                            android:textColor="@color/white"
-                            android:textStyle="bold"
-                            android:textSize="17sp"
-                            android:paddingStart="10dp"
-                            android:layout_gravity="center"
-                            android:gravity="center_vertical"
-                            android:background="@null"/>
-                    </LinearLayout>
-                </LinearLayout>-->
                 <LinearLayout
                     android:id="@+id/select_equipment"
                     android:layout_width="match_parent"
-                    android:layout_height="65dp"
-                    android:layout_margin="5dp"
+                    android:layout_height="76dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="15dp"
                     android:background="@drawable/shape_gray_less_round">
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:src="@drawable/employee_icon"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:src="@drawable/add_obj"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="15dp"/>
                     <LinearLayout
@@ -789,7 +682,8 @@
                             android:layout_weight="1"
                             android:text="Equipment"
                             android:gravity="center"
-                            android:textSize="20sp"
+                            android:textSize="22sp"
+                            android:textStyle="bold"
                             android:textColor="@color/j6_light_orange"/>
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -801,7 +695,7 @@
                                 android:textColor="@color/white"
                                 android:textSize="17sp"
                                 android:maxLines="1"
-                                android:text="@string/employee_department_position"/>
+                                android:text="Edit equipments"/>
                         </LinearLayout>
                     </LinearLayout>
                     <ImageView
@@ -815,17 +709,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_margin="5dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="15dp"
                     android:background="@drawable/shape_gray_less_round"
                     android:visibility="visible">
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="45dp">
+                        android:layout_height="43dp">
                         <ImageView
                             android:layout_width="20dp"
                             android:layout_height="match_parent"
                             android:layout_marginStart="10dp"
-                            android:src="@drawable/task_detail"/>
+                            android:src="@drawable/info_circle"/>
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -844,7 +740,7 @@
                     <LinearLayout
                         android:id="@+id/enter_interruption_description"
                         android:layout_width="match_parent"
-                        android:layout_height="80dp">
+                        android:layout_height="60dp">
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -855,17 +751,16 @@
                             android:maxLines="2"
                             android:layout_marginStart="10dp"
                             android:layout_gravity="center_vertical"/>
-                        <TextView
+                        <EditText
                             android:id="@+id/interruption_description"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_marginEnd="10dp"
                             android:layout_weight="6"
+                            android:inputType="text"
                             android:textColor="@color/white"
                             android:textStyle="bold"
-                            android:textSize="17sp"
-                            android:paddingStart="10dp"
-                            android:gravity="center_vertical" />
+                            android:background="@null"/>
                         <ImageView
                             android:layout_width="0dp"
                             android:layout_height="25dp"
@@ -880,7 +775,7 @@
                     <LinearLayout
                         android:id="@+id/select_system_zone_btn"
                         android:layout_width="match_parent"
-                        android:layout_height="45dp">
+                        android:layout_height="43dp">
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -915,12 +810,12 @@
                     <LinearLayout
                         android:id="@+id/select_tenant_interrupt_btn"
                         android:layout_width="match_parent"
-                        android:layout_height="45dp">
+                        android:layout_height="43dp">
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="3"
-                            android:text="Interruption to tenant building: "
+                            android:text="Tenant Building: "
                             android:textColor="@color/white"
                             android:textSize="17sp"
                             android:layout_marginStart="10dp"
@@ -950,7 +845,7 @@
                     <LinearLayout
                         android:id="@+id/select_sz_failure_btn"
                         android:layout_width="match_parent"
-                        android:layout_height="45dp">
+                        android:layout_height="60dp">
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -984,7 +879,7 @@
                         android:background="@color/color_basic_1100"/>
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="45dp">
+                        android:layout_height="43dp">
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -1011,7 +906,7 @@
                     <LinearLayout
                         android:id="@+id/select_ws_failure_btn"
                         android:layout_width="match_parent"
-                        android:layout_height="45dp">
+                        android:layout_height="60dp">
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -1043,13 +938,15 @@
                 <LinearLayout
                     android:id="@+id/select_attachment"
                     android:layout_width="match_parent"
-                    android:layout_height="65dp"
-                    android:layout_margin="5dp"
+                    android:layout_height="76dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="15dp"
                     android:background="@drawable/shape_gray_less_round">
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:src="@drawable/nwo_location"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/atta"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="15dp"/>
                     <LinearLayout
@@ -1063,6 +960,7 @@
                             android:layout_height="0dp"
                             android:layout_weight="1"
                             android:text="Attachment"
+                            android:textStyle="bold"
                             android:gravity="center"
                             android:textSize="20sp"
                             android:textColor="@color/j6_light_orange"/>
@@ -1088,19 +986,22 @@
                         android:layout_gravity="center_vertical"/>
                 </LinearLayout>
                 <LinearLayout
+                    android:id="@+id/result_section"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_margin="5dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="15dp"
                     android:background="@drawable/shape_gray_less_round">
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="45dp">
+                        android:layout_height="43dp">
                         <ImageView
                             android:layout_width="20dp"
                             android:layout_height="match_parent"
                             android:layout_marginStart="10dp"
-                            android:src="@drawable/task_detail"/>
+                            android:src="@drawable/info_circle"/>
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -1119,7 +1020,7 @@
                     <LinearLayout
                         android:id="@+id/select_status_btn"
                         android:layout_width="match_parent"
-                        android:layout_height="45dp">
+                        android:layout_height="43dp">
                         <TextView
                             android:id="@+id/result_status"
                             android:layout_width="0dp"
@@ -1153,13 +1054,13 @@
                         android:background="@color/color_basic_1100"/>
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="45dp">
+                        android:layout_height="43dp">
                         <TextView
                             android:id="@+id/result_remark"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="3"
-                            android:text="Remark/Adhoc host: "
+                            android:text="Remark: "
                             android:textColor="@color/white"
                             android:textSize="17sp"
                             android:layout_gravity="center_vertical"
@@ -1178,19 +1079,20 @@
                     </LinearLayout>
                 </LinearLayout>
                 <LinearLayout
+                    android:id="@+id/feedbacks"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_margin="5dp"
+                    android:layout_margin="15dp"
                     android:background="@drawable/shape_gray_less_round">
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="45dp">
+                        android:layout_height="43dp">
                         <ImageView
                             android:layout_width="20dp"
                             android:layout_height="match_parent"
                             android:layout_marginStart="10dp"
-                            android:src="@drawable/task_detail"/>
+                            android:src="@drawable/info_circle"/>
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -1203,6 +1105,7 @@
                             android:layout_gravity="center_vertical"/>
                     </LinearLayout>
                     <View
+                        android:id="@+id/feedback_divider"
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:background="@color/color_basic_1100"/>
@@ -1210,17 +1113,18 @@
                         android:id="@+id/feedback_recyclerview"
                         android:layout_width="match_parent"
                         android:layout_height="480dp"/>
-                    <!--<TextView
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="7dp"
+                        android:layout_margin="10dp"
                         android:textColor="@color/white"
-                        android:text="@string/lorem_ipsum"/>-->
+                        android:textSize="18sp"
+                        android:text="Additional comments"/>
                     <EditText
                         android:id="@+id/input"
                         android:layout_width="match_parent"
                         android:layout_height="250dp"
-                        android:layout_margin="7dp"
+                        android:layout_margin="10dp"
                         android:textColor="@color/white"
                         android:textSize="17sp"
                         android:inputType="textMultiLine"
@@ -1253,29 +1157,36 @@
             android:layout_height="50dp">
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="43dp"
                 android:text="Category"
                 android:textColor="@color/white"
                 android:gravity="center"
                 android:textSize="20sp"
                 android:textStyle="bold"/>
-            <ImageView
-                android:id="@+id/close_category_selection"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:src="@drawable/close"
-                android:layout_marginEnd="10dp"
-                android:layout_gravity="end|center"/>
         </FrameLayout>
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/category_selection_recycler_view"
+        <com.aigestudio.wheelpicker.WheelPicker
+            android:id="@+id/category_wp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="100dp"
+            app:wheel_visible_item_count="3"
+            app:wheel_item_text_size="18sp"
+            app:wheel_selected_item_text_color="@color/j6_light_orange"
+            app:wheel_atmospheric="true"/>
+        <TextView
+            android:id="@+id/close_category_selection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="OK"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:layout_margin="10dp"
+            android:gravity="center"/>
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/time_selection"
         android:layout_width="match_parent"
-        android:layout_height="670dp"
+        android:layout_height="700dp"
         android:layout_gravity="bottom"
         android:background="@drawable/shape_darker_light_gray_two_corners"
         android:orientation="vertical"
@@ -1286,7 +1197,7 @@
             android:layout_height="50dp">
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="43dp"
                 android:text="Date/Time Selection"
                 android:textColor="@color/white"
                 android:gravity="center"
@@ -1309,7 +1220,7 @@
             android:padding="1dp">
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="43dp"
                 android:text="Selected Date"
                 android:textColor="@color/white"
                 android:gravity="center"
@@ -1322,39 +1233,6 @@
                 android:layout_marginEnd="10dp"
                 android:layout_gravity="right|center"/>
         </FrameLayout>
-
-        <!--<LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_margin="7dp"
-            android:background="@drawable/wif_border"
-            android:padding="1dp">
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="45dp"
-                android:layout_weight="4"
-                android:text="Start Date"
-                android:textColor="@color/white"
-                android:gravity="center"
-                android:textSize="17sp"
-                android:textStyle="bold"/>
-            <TextView
-                android:id="@+id/date_selected"
-                android:layout_width="0dp"
-                android:layout_height="45dp"
-                android:layout_weight="6"
-                android:textStyle="bold"
-                android:textColor="@color/j6_light_orange"
-                android:gravity="center"
-                android:textSize="17sp"/>
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
-                android:src="@drawable/up_arrow"
-                android:layout_marginEnd="10dp"
-                android:layout_gravity="right|center"/>
-    </LinearLayout>-->
 
         <LinearLayout
             android:id="@+id/calender"
@@ -1480,7 +1358,7 @@
             android:padding="1dp">
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="43dp"
                 android:text="Selected Time"
                 android:textColor="@color/white"
                 android:gravity="center"
@@ -1493,38 +1371,6 @@
                 android:layout_marginEnd="10dp"
                 android:layout_gravity="right|center"/>
         </FrameLayout>
-        <!--<LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_margin="7dp"
-            android:background="@drawable/wif_border"
-            android:padding="1dp">
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="45dp"
-                android:layout_weight="4"
-                android:text="Start Time"
-                android:textColor="@color/white"
-                android:gravity="center"
-                android:textSize="17sp"
-                android:textStyle="bold"/>
-            <TextView
-                android:id="@+id/time_selected"
-                android:layout_width="0dp"
-                android:layout_height="45dp"
-                android:layout_weight="6"
-                android:textStyle="bold"
-                android:textColor="@color/j6_light_orange"
-                android:gravity="center"
-                android:textSize="17sp"/>
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
-                android:src="@drawable/up_arrow"
-                android:layout_marginEnd="10dp"
-                android:layout_gravity="right|center"/>
-        </LinearLayout>-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -1532,78 +1378,45 @@
             android:layout_margin="7dp"
             android:padding="1dp"
             android:background="@drawable/wif_border">
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="5"/>
             <com.aigestudio.wheelpicker.WheelPicker
                 android:id="@+id/hour_wheelpicker"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="3"
+                android:layout_weight="1"
                 android:layout_gravity="center"
                 app:wheel_atmospheric="true"
                 app:wheel_item_text_size="18sp"
                 app:wheel_visible_item_count="3"
                 app:wheel_item_text_color="@color/white"
                 app:wheel_selected_item_text_color="@color/white"/>
-            <!--<TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="5"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:text="Hour"/>-->
-            <com.aigestudio.wheelpicker.WheelPicker
-                android:id="@+id/ampm_wheelpicker"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:layout_gravity="center"
-                app:wheel_atmospheric="true"
-                app:wheel_item_text_size="18sp"
-                app:wheel_visible_item_count="3"
-                app:wheel_item_text_color="@color/white"
-                app:wheel_selected_item_text_color="@color/white"/>
-            <View
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="5"/>
             <com.aigestudio.wheelpicker.WheelPicker
                 android:id="@+id/minute_wheelpicker"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="3"
+                android:layout_weight="1"
                 android:layout_gravity="center"
                 app:wheel_atmospheric="true"
                 app:wheel_item_text_size="18sp"
                 app:wheel_visible_item_count="3"
                 app:wheel_item_text_color="@color/white"
                 app:wheel_selected_item_text_color="@color/white"/>
-            <View
+            <com.aigestudio.wheelpicker.WheelPicker
+                android:id="@+id/ampm_wheelpicker"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="5"/>
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                app:wheel_atmospheric="true"
+                app:wheel_item_text_size="18sp"
+                app:wheel_visible_item_count="3"
+                app:wheel_item_text_color="@color/white"
+                app:wheel_selected_item_text_color="@color/white"/>
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/save_btn"
-            android:layout_width="130dp"
-            android:layout_height="40dp"
-            android:padding="1dp"
-            android:layout_margin="7dp"
-            android:background="@drawable/wif_border"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:text="Save"/>
+        <include layout="@layout/save_button"/>
 
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/system_zone_selection"
         android:layout_width="match_parent"
@@ -1618,26 +1431,32 @@
             android:layout_height="50dp">
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="43dp"
                 android:text="System Zone"
                 android:textColor="@color/white"
                 android:gravity="center"
                 android:textSize="20sp"
                 android:textStyle="bold"/>
-            <ImageView
-                android:id="@+id/close_system_zone_selection"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:src="@drawable/close"
-                android:layout_marginEnd="10dp"
-                android:layout_gravity="right|center"/>
         </FrameLayout>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/system_zone_selection_recycler_view"
+        <com.aigestudio.wheelpicker.WheelPicker
+            android:id="@+id/system_zone_wp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="100dp"
+            app:wheel_visible_item_count="3"
+            app:wheel_item_text_size="18sp"
+            app:wheel_selected_item_text_color="@color/j6_light_orange"
+            app:wheel_atmospheric="true"/>
+        <TextView
+            android:id="@+id/close_system_zone_selection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="OK"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:layout_margin="10dp"
+            android:gravity="center"/>
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/tenant_interrupt_selection"
         android:layout_width="match_parent"
@@ -1652,43 +1471,32 @@
             android:layout_height="50dp">
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="43dp"
                 android:text="Interruption to Tenant Building"
                 android:textColor="@color/white"
                 android:gravity="center"
                 android:textSize="20sp"
                 android:textStyle="bold"/>
-            <ImageView
-                android:id="@+id/close_tenant_interrupt_selection"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:src="@drawable/close"
-                android:layout_marginEnd="10dp"
-                android:layout_gravity="right|center"/>
         </FrameLayout>
-        <View
+        <com.aigestudio.wheelpicker.WheelPicker
+            android:id="@+id/ti_wp"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/color_basic_1100"/>
+            android:layout_height="100dp"
+            app:wheel_visible_item_count="3"
+            app:wheel_item_text_size="18sp"
+            app:wheel_selected_item_text_color="@color/j6_light_orange"
+            app:wheel_atmospheric="true"/>
         <TextView
+            android:id="@+id/close_tenant_interrupt_selection"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="YES"
+            android:layout_height="wrap_content"
+            android:text="OK"
+            android:textSize="20sp"
             android:textColor="@color/white"
-            android:textSize="17sp"
-            android:gravity="center"/>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/color_basic_1100"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:textSize="17sp"
-            android:text="NO"
-            android:textColor="@color/white"
+            android:layout_margin="10dp"
             android:gravity="center"/>
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/sz_failure_selection"
         android:layout_width="match_parent"
@@ -1703,43 +1511,32 @@
             android:layout_height="50dp">
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="43dp"
                 android:text="System Zone Failure"
                 android:textColor="@color/white"
                 android:gravity="center"
                 android:textSize="20sp"
                 android:textStyle="bold"/>
-            <ImageView
-                android:id="@+id/close_sz_failure_selection"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:src="@drawable/close"
-                android:layout_marginEnd="10dp"
-                android:layout_gravity="right|center"/>
         </FrameLayout>
-        <View
+        <com.aigestudio.wheelpicker.WheelPicker
+            android:id="@+id/sz_failure_wp"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/color_basic_1100"/>
+            android:layout_height="100dp"
+            app:wheel_visible_item_count="3"
+            app:wheel_item_text_size="18sp"
+            app:wheel_selected_item_text_color="@color/j6_light_orange"
+            app:wheel_atmospheric="true"/>
         <TextView
+            android:id="@+id/close_sz_failure_selection"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="YES"
+            android:layout_height="wrap_content"
+            android:text="OK"
+            android:textSize="20sp"
             android:textColor="@color/white"
-            android:textSize="17sp"
-            android:gravity="center"/>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/color_basic_1100"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:textSize="17sp"
-            android:text="NO"
-            android:textColor="@color/white"
+            android:layout_margin="10dp"
             android:gravity="center"/>
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/ws_failure_selection"
         android:layout_width="match_parent"
@@ -1754,41 +1551,36 @@
             android:layout_height="50dp">
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="43dp"
                 android:text="Whole System Failure"
                 android:textColor="@color/white"
                 android:gravity="center"
                 android:textSize="20sp"
                 android:textStyle="bold"/>
             <ImageView
-                android:id="@+id/close_ws_failure_selection"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:src="@drawable/close"
                 android:layout_marginEnd="10dp"
-                android:layout_gravity="right|center"/>
+                android:layout_gravity="right|center"
+                android:visibility="gone"/>
         </FrameLayout>
-        <View
+        <com.aigestudio.wheelpicker.WheelPicker
+            android:id="@+id/ws_failure_wp"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/color_basic_1100"/>
+            android:layout_height="100dp"
+            app:wheel_visible_item_count="3"
+            app:wheel_item_text_size="18sp"
+            app:wheel_selected_item_text_color="@color/j6_light_orange"
+            app:wheel_atmospheric="true"/>
         <TextView
+            android:id="@+id/close_ws_failure_selection"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="YES"
+            android:layout_height="wrap_content"
+            android:text="OK"
+            android:textSize="20sp"
             android:textColor="@color/white"
-            android:textSize="17sp"
-            android:gravity="center"/>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/color_basic_1100"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:textSize="17sp"
-            android:text="NO"
-            android:textColor="@color/white"
+            android:layout_margin="10dp"
             android:gravity="center"/>
     </LinearLayout>
     <LinearLayout
@@ -1805,63 +1597,36 @@
             android:layout_height="50dp">
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="43dp"
                 android:text="Status"
                 android:textColor="@color/white"
                 android:gravity="center"
                 android:textSize="20sp"
                 android:textStyle="bold"/>
             <ImageView
-                android:id="@+id/close_status_selection"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:src="@drawable/close"
                 android:layout_marginEnd="10dp"
-                android:layout_gravity="right|center"/>
+                android:layout_gravity="right|center"
+                android:visibility="gone"/>
         </FrameLayout>
-        <View
+        <com.aigestudio.wheelpicker.WheelPicker
+            android:id="@+id/status_wp"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/color_basic_1100"/>
+            android:layout_height="100dp"
+            app:wheel_visible_item_count="3"
+            app:wheel_item_text_size="18sp"
+            app:wheel_selected_item_text_color="@color/j6_light_orange"
+            app:wheel_atmospheric="true"/>
         <TextView
+            android:id="@+id/close_status_selection"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="Complete"
+            android:layout_height="wrap_content"
+            android:text="OK"
+            android:textSize="20sp"
             android:textColor="@color/white"
-            android:textSize="17sp"
-            android:gravity="center"/>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/color_basic_1100"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:textSize="17sp"
-            android:text="Cancel"
-            android:textColor="@color/white"
-            android:gravity="center"/>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/color_basic_1100"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:textSize="17sp"
-            android:text="Outstanding order"
-            android:textColor="@color/white"
-            android:gravity="center"/>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/color_basic_1100"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:textSize="17sp"
-            android:text="Request for outsource"
-            android:textColor="@color/white"
+            android:layout_margin="10dp"
             android:gravity="center"/>
     </LinearLayout>
 </FrameLayout>

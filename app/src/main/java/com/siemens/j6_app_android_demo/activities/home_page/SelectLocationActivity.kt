@@ -72,14 +72,16 @@ class SelectLocationActivity : AppCompatActivity() {
 
     private val addNewLocation = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
-            val locToAdd: Location = result.data!!.getSerializableExtra("loc") as Location
-            var alreadyAdded = false
-            for (loc in locationList)
-                if (loc.id == locToAdd.id)
-                    alreadyAdded = true
-            if (!alreadyAdded)
-                locationList.add(locToAdd)
-            dAdapter.notifyDataSetChanged()
+            val locToAdd = result.data!!.getSerializableExtra("loc") as Location?
+            locToAdd?.let {
+                var alreadyAdded = false
+                for (loc in locationList)
+                    if (loc.id == locToAdd.id)
+                        alreadyAdded = true
+                if (!alreadyAdded)
+                    locationList.add(locToAdd)
+                dAdapter.notifyDataSetChanged()
+            }
         }
     }
 

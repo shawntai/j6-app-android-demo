@@ -21,10 +21,11 @@ class EquipmentAdapter(var list: ArrayList<Equipment>) : RecyclerView.Adapter<Eq
 
     inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener {
 
-        var e_id: AutoCompleteTextView = view.findViewById(R.id.equip_id)
-        var description: EditText  = view.findViewById(R.id.description)
-        var downtime: EditText = view.findViewById(R.id.downtime)
+        var e_id: TextView = view.findViewById(R.id.equip_id)
+        var description: TextView  = view.findViewById(R.id.description)
+        var downtime: TextView = view.findViewById(R.id.downtime)
         var condition: TextView = view.findViewById(R.id.condition)
+        var mainLayout: LinearLayout = view.findViewById(R.id.main_layout)
         var swipeRevealLayout: SwipeRevealLayout = view as SwipeRevealLayout
         var delete: LinearLayout = view.findViewById(R.id.delete)
         init {
@@ -38,19 +39,20 @@ class EquipmentAdapter(var list: ArrayList<Equipment>) : RecyclerView.Adapter<Eq
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView: View = LayoutInflater.from(parent.context)
-            .inflate(R.layout.equipment_item, parent, false)
+            .inflate(R.layout.swipable_equipment_item, parent, false)
         return MyViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.e_id.setText(list[position].eid)
-        holder.description.setText(list[position].description)
-        holder.downtime.setText(list[position].downtime)
+        holder.e_id.text = list[position].eid
+        holder.description.text = list[position].description
+        holder.downtime.text = list[position].downtime
         holder.condition.text = list[position].condition
         holder.delete.setOnClickListener {
             list.removeAt(position)
             notifyDataSetChanged()
         }
+        holder.mainLayout.setOnClickListener {  }
         viewBinderHelper!!.bind(holder.swipeRevealLayout, list[position].id.toString())
     }
 

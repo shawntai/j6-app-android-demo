@@ -19,9 +19,9 @@ class EditWorkOrderActivity : AppCompatActivity() {
 
         val workOrder = Gson().fromJson(intent.getStringExtra("work_order"), WorkOrder::class.java)
         workOrder?.let {
-            findViewById<TextView>(R.id.tenant).text = workOrder.tenant.name
-            findViewById<TextView>(R.id.unit).text = workOrder.tenant.unit
-            findViewById<TextView>(R.id.contact_person).text = workOrder.tenant.contactPerson.name
+            findViewById<TextView>(R.id.tenant).text = workOrder.tenant?.name
+            findViewById<TextView>(R.id.unit).text = workOrder.tenant?.unit
+            findViewById<TextView>(R.id.contact_person).text = workOrder.tenant?.contactPerson?.name
         }
     }
 }

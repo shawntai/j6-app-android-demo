@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.siemens.j6_app_android_demo.R
-import com.siemens.j6_app_android_demo.activities.home_page.AddNewWorkOrderActivity
+import com.siemens.j6_app_android_demo.activities.home_page.WorkOrderActivity
 import java.util.*
 
 class CategorySelectionAdapter(var list: ArrayList<String>) : RecyclerView.Adapter<CategorySelectionAdapter.MyViewHolder>() {
@@ -34,7 +34,7 @@ class CategorySelectionAdapter(var list: ArrayList<String>) : RecyclerView.Adapt
         holder.setIsRecyclable(false)
         holder.optionName.text = list[position]
         holder.optionName.setOnClickListener {
-            (holder.optionName.context as AddNewWorkOrderActivity).findViewById<TextView>(R.id.category).text = holder.optionName.text
+            (holder.optionName.context as WorkOrderActivity).findViewById<TextView>(R.id.category).text = holder.optionName.text
             holder.optionName.setTextColor(Color.parseColor("#F36F32"))
         }
         /*holder.bg.setOnClickListener {

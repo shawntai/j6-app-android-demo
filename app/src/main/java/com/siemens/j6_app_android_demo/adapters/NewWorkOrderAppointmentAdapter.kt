@@ -1,7 +1,6 @@
 package com.siemens.j6_app_android_demo.adapters
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -10,18 +9,11 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.activity.result.contract.ActivityResultContracts
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.target.Target
 import com.google.gson.Gson
 import com.siemens.j6_app_android_demo.R
-import com.siemens.j6_app_android_demo.activities.home_page.AddNewWorkOrderActivity
-import com.siemens.j6_app_android_demo.activities.home_page.EditWorkOrderActivity
+import com.siemens.j6_app_android_demo.activities.home_page.WorkOrderActivity
 import com.siemens.j6_app_android_demo.activities.home_page.HomePageActivity
-import com.siemens.j6_app_android_demo.fragments.WorkOrderFragment
-import com.siemens.j6_app_android_demo.models.MaintenanceDataModel
 import com.siemens.j6_app_android_demo.models.WorkOrder
-import com.siemens.j6_app_android_demo.models.WorkOrderAppointmentDataModel
 import java.util.*
 
 class NewWorkOrderAppointmentAdapter(private val context: Context, private val arrayList: ArrayList<WorkOrder>) : BaseAdapter() {
@@ -57,15 +49,15 @@ class NewWorkOrderAppointmentAdapter(private val context: Context, private val a
 
         title.text = arrayList[position].recordName
         date.text = arrayList[position].plannedAt
-        if (arrayList[position].locations.isNotEmpty()) {
-            place.text = arrayList[position].locations[0].room + ", " + arrayList[position].locations[0].level + ", " + arrayList[position].locations[0].building.name
+        if (arrayList[position].locations != null && arrayList[position].locations?.isNotEmpty()!!) {
+            place.text = arrayList[position].locations?.get(0)!!.room + ", " + arrayList[position].locations?.get(0)!!.level + ", " + arrayList[position].locations?.get(0)!!.building.name
         }        //image.setImageResource(arrayList[position].img)
         //Glide.with(image.context).load(arrayList[position].imgUrl).fitCenter().override(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL).into(image)
         convertView.setOnClickListener {
             val context = convertView.context as HomePageActivity
             context.editedWorkOrderPosition = position
             //val i = Intent(convertView.context, EditWorkOrderActivity::class.java)
-            val i = Intent(context, AddNewWorkOrderActivity::class.java)
+            val i = Intent(context, WorkOrderActivity::class.java)
             i.putExtra("work_order", Gson().toJson(arrayList[position]))
             //convertView.context.startActivity(i)
             context.editWorkOrder.launch(i)

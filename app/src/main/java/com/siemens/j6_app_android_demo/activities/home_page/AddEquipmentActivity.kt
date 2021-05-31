@@ -15,6 +15,9 @@ import com.siemens.j6_app_android_demo.service.EquipmentsCallback
 import com.siemens.j6_app_android_demo.service.WorkOrderService
 
 class AddEquipmentActivity : AppCompatActivity(), EquipmentsCallback {
+
+    var equipmentToAdd: Equipment? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_equipment)
@@ -49,6 +52,15 @@ class AddEquipmentActivity : AppCompatActivity(), EquipmentsCallback {
             }
         }
 
+        findViewById<ImageView>(R.id.back).setOnClickListener {
+            val nullEquip: Equipment? = null
+            val resultIntent = Intent()
+            //resultIntent.putExtra("equip", Equipment(eid, description, downtime, condition, (0..9999).random(), ""))
+            resultIntent.putExtra("equip", nullEquip)
+            setResult(RESULT_OK, resultIntent)
+            finish()
+        }
+
         findViewById<TextView>(R.id.save_btn).setOnClickListener {
 
             val eid = findViewById<AutoCompleteTextView>(R.id.equip_id).text.toString()
@@ -57,7 +69,8 @@ class AddEquipmentActivity : AppCompatActivity(), EquipmentsCallback {
             val condition = findViewById<TextView>(R.id.condition).text.toString()
 
             val resultIntent = Intent()
-            resultIntent.putExtra("equip", Equipment(eid, description, downtime, condition, (0..9999).random(), ""))
+            //resultIntent.putExtra("equip", Equipment(eid, description, downtime, condition, (0..9999).random(), ""))
+            resultIntent.putExtra("equip", equipmentToAdd)
             setResult(RESULT_OK, resultIntent)
             finish()
         }
@@ -74,6 +87,7 @@ class AddEquipmentActivity : AppCompatActivity(), EquipmentsCallback {
         equip_actv.doOnTextChanged { text, start, before, count ->
             for (equipment in result) {
                 if (equipment.eid == text.toString()) {
+                    equipmentToAdd = equipment
                     findViewById<EditText>(R.id.description).setText(equipment.description)
                     findViewById<EditText>(R.id.downtime).setText(equipment.downtime)
                     findViewById<TextView>(R.id.condition).text = equipment.condition
