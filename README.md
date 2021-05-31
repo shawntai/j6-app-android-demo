@@ -151,10 +151,59 @@ dialog.show()
 - Add multi-langauge support
 - The function to edit work orders is not working and should be fixed. The changes are not being updated to the database. Might need to take a look at how the PATCH request is written in `WorkOrderService.kt`
 
+# Deployment Guide
+### Generate Signed APK
+1. First, in Android Studio, go to the Build tab and select Generate Signed Bundle / APK...
 
+![image](https://i.imgur.com/0DtCWGv.png)
 
+2. For "key store path", choose "CREATE NEW..." if there is not any existing ones.
 
+![image](https://i.imgur.com/FsshZTM.png)
 
+3. A "New Key Store" window will pop up. Fill in the required information, then click OK. Remember to memorize the key store password, key alias, and key password, as they will be neede later on.
+
+![image](https://i.imgur.com/6SHsP5N.png)
+
+4. In the "Generate Signed Bundle or APK window, fill in the key store password, key alias, and key password of the key store you just created, and lick NEXT.
+
+![image](https://i.imgur.com/Q2tjJPW.png)
+
+5. For "Choose Variants", select the "release" build. Then select both V1 (Jar Signature) and V2 (Full APK signature) for the Signature Versions. Then click FINISH.
+
+![image](https://i.imgur.com/D0kUglC.png)
+
+6. An APK named "app-release.apk" will be generated and saved in the app/release directory.
+
+![image](https://i.imgur.com/wJx8mUh.png)
+
+### Deploy to Google Play Console
+7. On Google Play Console, select "Internal testing" from the navigation bar on the left side, and select "Create new release" on the top-right corner.
+
+![image](https://i.imgur.com/Tx69ZKY.png)
+
+8. Under "App bundles and APKs" click "Upload" to upload to APK. Worth noting that before uploading the apk, you should make sure the version code is not the same as any previous version; otherwise, the console will not allow the upload until the version code is incremented. The version code can be changed in the app’s build.gradle, in
+```
+android {
+    ...
+     defaultConfig {
+        ...
+        versionCode 6 // increment
+        versionName "1.0.5" // change to next version name
+        ...
+    }
+}
+```
+
+![image](https://i.imgur.com/xXQwUov.png)
+
+If the version code is not updated, this error will occur
+
+![image](https://i.imgur.com/1UoFvKM.png)
+
+9. After the successful upload of apk, fill in the release details. Then click Save, Review Release, and Save again to release the internal testing to testers.
+
+![image](https://i.imgur.com/0k3wfM2.png)
 
 
 
