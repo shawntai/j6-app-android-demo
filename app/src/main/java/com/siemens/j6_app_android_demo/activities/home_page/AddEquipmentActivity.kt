@@ -83,6 +83,7 @@ class AddEquipmentActivity : AppCompatActivity(), EquipmentsCallback {
 
         val equip_actv = findViewById<AutoCompleteTextView>(R.id.equip_id)
         equip_actv.threshold = 0
+        equip_actv.setDropDownBackgroundResource(R.color.color_basic_900)
         equip_actv.setAdapter(ArrayAdapter<String>(this, android.R.layout.select_dialog_item, equipEidList))
         equip_actv.doOnTextChanged { text, start, before, count ->
             for (equipment in result) {

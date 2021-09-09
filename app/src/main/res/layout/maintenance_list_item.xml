@@ -26,14 +26,15 @@
             android:gravity="center"
             android:layout_marginTop="10dp">
             <ImageView
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:src="@drawable/calender_white"/>
+                android:layout_width="18dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/white_clndr"/>
             <TextView
                 android:id="@+id/maintenance_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Jan 21, 2021"
+                android:textSize="15sp"
                 android:textColor="@color/white"
                 android:layout_marginLeft="5dp"/>
         </LinearLayout>
@@ -43,17 +44,17 @@
             android:gravity="center"
             android:layout_marginTop="5dp">
             <ImageView
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:src="@drawable/marker_white"/>
+                android:layout_width="18dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/white_pin"/>
             <TextView
                 android:id="@+id/maintenance_place"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Chiller Plant Room, Building 1"
+                android:text="Chiller Plant Room"
                 android:textColor="@color/white"
                 android:layout_marginLeft="5dp"
-                android:textSize="12sp"/>
+                android:textSize="15sp"/>
         </LinearLayout>
     </LinearLayout>
     <ImageView

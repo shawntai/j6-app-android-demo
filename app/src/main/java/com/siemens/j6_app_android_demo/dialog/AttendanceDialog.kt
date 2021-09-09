@@ -3,6 +3,8 @@ package com.siemens.j6_app_android_demo.dialog
 import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
 import android.view.Window
@@ -36,6 +38,7 @@ class AttendanceDialog(context: Context) : Dialog(context), OnMapxusMapReadyCall
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
+        window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         setContentView(R.layout.attendance_pop_up)
         mapView = findViewById(R.id.mapView)
         mapView.setOnTouchListener { v, event -> true }

@@ -3,6 +3,7 @@ package com.siemens.j6_app_android_demo.activities.home_page
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -47,6 +48,13 @@ class AddNewMaterialActivity : AppCompatActivity(), MaterialsCallback {
                     matsSelected.add(mat)
                 }
             }
+            val resultIntent = Intent()
+            resultIntent.putExtra("available_mats_added", matsSelected)
+            setResult(RESULT_OK, resultIntent)
+            finish()
+        }
+        findViewById<ImageView>(R.id.back).setOnClickListener {
+            val matsSelected: ArrayList<Material>? = null
             val resultIntent = Intent()
             resultIntent.putExtra("available_mats_added", matsSelected)
             setResult(RESULT_OK, resultIntent)

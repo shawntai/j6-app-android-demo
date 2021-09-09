@@ -88,8 +88,8 @@ class HomePageActivity : AppCompatActivity() {
                 MaintenanceDataModel(
                     "Chiller Plant Inspection",
                     Calendar.getInstance(),
-                    "Chiller Plant Room, Building 1",
-                    R.drawable.maintenance_1
+                    "Chiller Plant Room",
+                    R.drawable.hkstp_3
                 )
             )
         }

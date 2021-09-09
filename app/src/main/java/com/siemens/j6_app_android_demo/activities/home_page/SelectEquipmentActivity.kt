@@ -51,7 +51,8 @@ class SelectEquipmentActivity : AppCompatActivity() {
         }
         findViewById<ImageView>(R.id.back).setOnClickListener {
             val resultIntent = Intent()
-            resultIntent.putExtra("equip_list", equipmentList)
+            val nullEqLst: ArrayList<Equipment>? = null
+            resultIntent.putExtra("equip_list", nullEqLst)
             setResult(RESULT_OK, resultIntent)
             finish()
         }

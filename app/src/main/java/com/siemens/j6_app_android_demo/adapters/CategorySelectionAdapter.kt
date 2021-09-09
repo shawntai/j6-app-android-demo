@@ -35,6 +35,7 @@ class CategorySelectionAdapter(var list: ArrayList<String>) : RecyclerView.Adapt
         holder.optionName.text = list[position]
         holder.optionName.setOnClickListener {
             (holder.optionName.context as WorkOrderActivity).findViewById<TextView>(R.id.category).text = holder.optionName.text
+            (holder.optionName.context as WorkOrderActivity).findViewById<TextView>(R.id.category).setTextColor((holder.optionName.context as WorkOrderActivity).getColor(R.color.white))
             holder.optionName.setTextColor(Color.parseColor("#F36F32"))
         }
         /*holder.bg.setOnClickListener {

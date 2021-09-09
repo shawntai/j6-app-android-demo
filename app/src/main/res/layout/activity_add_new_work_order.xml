@@ -40,10 +40,9 @@
                         android:gravity="center"/>
                     <ImageView
                         android:id="@+id/done"
-                        android:layout_width="64dp"
+                        android:layout_width="70dp"
                         android:layout_height="35dp"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginRight="10dp"
                         android:src="@drawable/done_btn"/>
                 </LinearLayout>
 
@@ -116,7 +115,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="43dp">
                         <ImageView
-                            android:layout_width="20dp"
+                            android:layout_width="30dp"
                             android:layout_height="match_parent"
                             android:layout_marginStart="10dp"
                             android:src="@drawable/info_circle"/>
@@ -158,6 +157,8 @@
                             android:inputType="text"
                             android:textColor="@color/white"
                             android:textStyle="bold"
+                            android:hint="Enter record name"
+                            android:textColorHint="@color/hint_color"
                             android:background="@null"/>
                     </LinearLayout>
                     <View
@@ -187,7 +188,9 @@
                             android:background="@null"
                             android:inputType="text"
                             android:textColor="@color/white"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:hint="Enter tenant"
+                            android:textColorHint="@color/hint_color"/>
                     </LinearLayout>
                     <View
                         android:layout_width="match_parent"
@@ -215,7 +218,9 @@
                             android:inputType="text"
                             android:textSize="17sp"
                             android:textColor="@color/white"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:hint="Enter unit"
+                            android:textColorHint="@color/hint_color"/>
                     </LinearLayout>
                     <View
                         android:layout_width="match_parent"
@@ -243,7 +248,9 @@
                             android:textColor="@color/white"
                             android:textSize="17sp"
                             android:textStyle="bold"
-                            android:background="@null"/>
+                            android:background="@null"
+                            android:hint="Enter contact person"
+                            android:textColorHint="@color/hint_color"/>
                     </LinearLayout>
                     <View
                         android:layout_width="match_parent"
@@ -271,7 +278,9 @@
                             android:textColor="@color/white"
                             android:textStyle="bold"
                             android:textSize="17sp"
-                            android:gravity="center_vertical" />
+                            android:gravity="center_vertical"
+                            android:hint="Select request time"
+                            android:textColorHint="@color/hint_color"/>
                         <ImageView
                             android:layout_width="0dp"
                             android:layout_height="40dp"
@@ -294,10 +303,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="43dp">
                         <ImageView
-                            android:layout_width="20dp"
+                            android:layout_width="30dp"
                             android:layout_height="match_parent"
                             android:layout_marginStart="10dp"
-                            android:src="@drawable/task_detail"/>
+                            android:layout_gravity="center"
+                            android:src="@drawable/orange_three"/>
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -335,6 +345,8 @@
                             android:textColor="@color/white"
                             android:textStyle="bold"
                             android:textSize="17sp"
+                            android:hint="Select category"
+                            android:textColorHint="@color/hint_color"
                             android:gravity="center_vertical" />
                         <ImageView
                             android:layout_width="0dp"
@@ -371,6 +383,8 @@
                             android:inputType="text"
                             android:textColor="@color/white"
                             android:textStyle="bold"
+                            android:hint="Enter order descriptions"
+                            android:textColorHint="@color/hint_color"
                             android:background="@null"/>
                     </LinearLayout>
                     <View
@@ -400,6 +414,8 @@
                             android:textColor="@color/white"
                             android:textStyle="bold"
                             android:textSize="17sp"
+                            android:hint="Select start time"
+                            android:textColorHint="@color/hint_color"
                             android:gravity="center_vertical" />
                         <ImageView
                             android:layout_width="0dp"
@@ -426,16 +442,20 @@
                             android:textSize="17sp"
                             android:layout_marginStart="10dp"
                             android:layout_gravity="center_vertical"/>
+
                         <TextView
                             android:id="@+id/finish_time_entered"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_marginEnd="10dp"
                             android:layout_weight="6"
+                            android:gravity="center_vertical"
                             android:textColor="@color/white"
-                            android:textStyle="bold"
                             android:textSize="17sp"
-                            android:gravity="center_vertical" />
+                            android:textStyle="bold"
+                            android:hint="Select finish time"
+                            android:textColorHint="@color/hint_color"/>
+
                         <ImageView
                             android:layout_width="0dp"
                             android:layout_height="40dp"
@@ -468,7 +488,9 @@
                             android:inputType="text"
                             android:textColor="@color/white"
                             android:textStyle="bold"
-                            android:background="@null"/>
+                            android:background="@null"
+                            android:hint="Enter issued by"
+                            android:textColorHint="@color/hint_color"/>
                     </LinearLayout>
                     <View
                         android:layout_width="match_parent"
@@ -496,7 +518,9 @@
                             android:textColor="@color/white"
                             android:textStyle="bold"
                             android:textSize="17sp"
-                            android:gravity="center_vertical" />
+                            android:gravity="center_vertical"
+                            android:hint="Select issued time"
+                            android:textColorHint="@color/hint_color"/>
                         <ImageView
                             android:layout_width="0dp"
                             android:layout_height="40dp"
@@ -718,7 +742,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="43dp">
                         <ImageView
-                            android:layout_width="20dp"
+                            android:layout_width="30dp"
                             android:layout_height="match_parent"
                             android:layout_marginStart="10dp"
                             android:src="@drawable/info_circle"/>
@@ -740,12 +764,12 @@
                     <LinearLayout
                         android:id="@+id/enter_interruption_description"
                         android:layout_width="match_parent"
-                        android:layout_height="60dp">
+                        android:layout_height="43dp">
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="3"
-                            android:text="Interruption Description: "
+                            android:text="Description: "
                             android:textColor="@color/white"
                             android:textSize="17sp"
                             android:maxLines="2"
@@ -760,6 +784,8 @@
                             android:inputType="text"
                             android:textColor="@color/white"
                             android:textStyle="bold"
+                            android:hint="Enter description"
+                            android:textColorHint="@color/hint_color"
                             android:background="@null"/>
                         <ImageView
                             android:layout_width="0dp"
@@ -794,7 +820,8 @@
                             android:textColor="@color/white"
                             android:textStyle="bold"
                             android:textSize="17sp"
-                            android:paddingStart="10dp"
+                            android:hint="Select system zone"
+                            android:textColorHint="@color/hint_color"
                             android:gravity="center_vertical" />
                         <ImageView
                             android:layout_width="0dp"
@@ -829,7 +856,8 @@
                             android:textColor="@color/white"
                             android:textStyle="bold"
                             android:textSize="17sp"
-                            android:paddingStart="10dp"
+                            android:hint="Select tenant building"
+                            android:textColorHint="@color/hint_color"
                             android:gravity="center_vertical" />
                         <ImageView
                             android:layout_width="0dp"
@@ -864,7 +892,8 @@
                             android:textColor="@color/white"
                             android:textStyle="bold"
                             android:textSize="17sp"
-                            android:paddingStart="10dp"
+                            android:hint="Select system zone"
+                            android:textColorHint="@color/hint_color"
                             android:gravity="center_vertical" />
                         <ImageView
                             android:layout_width="0dp"
@@ -897,6 +926,8 @@
                             android:inputType="text"
                             android:textColor="@color/white"
                             android:textStyle="bold"
+                            android:hint="Select down time"
+                            android:textColorHint="@color/hint_color"
                             android:background="@null"/>
                     </LinearLayout>
                     <View
@@ -925,7 +956,8 @@
                             android:textColor="@color/white"
                             android:textStyle="bold"
                             android:textSize="17sp"
-                            android:paddingStart="10dp"
+                            android:hint="Select whole system"
+                            android:textColorHint="@color/hint_color"
                             android:gravity="center_vertical" />
                         <ImageView
                             android:layout_width="0dp"
@@ -998,7 +1030,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="43dp">
                         <ImageView
-                            android:layout_width="20dp"
+                            android:layout_width="30dp"
                             android:layout_height="match_parent"
                             android:layout_marginStart="10dp"
                             android:src="@drawable/info_circle"/>
@@ -1040,6 +1072,8 @@
                             android:textColor="@color/white"
                             android:textStyle="bold"
                             android:textSize="17sp"
+                            android:hint="Select status"
+                            android:textColorHint="@color/hint_color"
                             android:gravity="center_vertical" />
                         <ImageView
                             android:layout_width="0dp"
@@ -1075,6 +1109,8 @@
                             android:inputType="text"
                             android:textColor="@color/white"
                             android:textStyle="bold"
+                            android:hint="Enter remarks"
+                            android:textColorHint="@color/hint_color"
                             android:background="@null"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -1089,7 +1125,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="43dp">
                         <ImageView
-                            android:layout_width="20dp"
+                            android:layout_width="30dp"
                             android:layout_height="match_parent"
                             android:layout_marginStart="10dp"
                             android:src="@drawable/info_circle"/>

@@ -60,7 +60,8 @@ class SelectMaterialActivity : AppCompatActivity() {
         }
         findViewById<ImageView>(R.id.back).setOnClickListener {
             val resultIntent = Intent()
-            resultIntent.putExtra("mat", ArrayList<Material>())
+            val nullMat: ArrayList<Material>? = null
+            resultIntent.putExtra("mat", nullMat)
             setResult(RESULT_OK, resultIntent)
             finish()
         }
@@ -86,21 +87,24 @@ class SelectMaterialActivity : AppCompatActivity() {
 
     private val addNewMaterial = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
-            val mats = result.data!!.getSerializableExtra("available_mats_added") as ArrayList<Material>
+            val mats = result.data!!.getSerializableExtra("available_mats_added") as ArrayList<Material>?
 //            materialsToBePicked.clear()
 //            materialsToBePicked.addAll(mats)
-            for (matToBeAdded in mats) {
-                var alreadyAdded = false
-                for (mat in materialsToBePicked) {
-                    if (mat.id == matToBeAdded.id) {
-                        alreadyAdded = true
-                        break
+            mats?.let {
+                for (matToBeAdded in mats) {
+                    var alreadyAdded = false
+                    for (mat in materialsToBePicked) {
+                        if (mat.id == matToBeAdded.id) {
+                            mat.qty = matToBeAdded.qty
+                            alreadyAdded = true
+                            break
+                        }
                     }
+                    if (!alreadyAdded)
+                        materialsToBePicked.add(matToBeAdded)
                 }
-                if (!alreadyAdded)
-                    materialsToBePicked.add(matToBeAdded)
+                dAdapter.notifyDataSetChanged()
             }
-            dAdapter.notifyDataSetChanged()
         }
     }
 }

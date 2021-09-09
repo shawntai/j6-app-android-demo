@@ -8,7 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="j6_black">#1a1a1a</color>
+    <color name="j6_black">#131320</color>
     <color name="j6_dark_orange">#FD4F1E</color>
     <color name="j6_gray">#152341</color>
     <color name="j6_light_gray">#afafaf</color>
@@ -19,4 +19,6 @@
     <color name="color_basic_700_curtain">#22263452</color>
     <color name="color_basic_900">#131320</color>
     <color name="color_basic_1100">#0E0D13</color>
+
+    <color name="hint_color">#bbb</color>
 </resources>

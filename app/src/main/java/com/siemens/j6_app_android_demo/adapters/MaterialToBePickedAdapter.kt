@@ -9,12 +9,16 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.Target
+import com.chauthai.swipereveallayout.SwipeRevealLayout
+import com.chauthai.swipereveallayout.ViewBinderHelper
 import com.siemens.j6_app_android_demo.R
 import com.siemens.j6_app_android_demo.models.Material
 import java.util.*
 
 class MaterialToBePickedAdapter(var list: ArrayList<Material>) : RecyclerView.Adapter<MaterialToBePickedAdapter.MyViewHolder>() {
     private var clickListener: ClickListener? = null
+
+    private val viewBinderHelper: ViewBinderHelper? = ViewBinderHelper()
 
     inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener {
 
@@ -24,6 +28,8 @@ class MaterialToBePickedAdapter(var list: ArrayList<Material>) : RecyclerView.Ad
         var qty: TextView = view.findViewById(R.id.qty)
         var image: ImageView = view.findViewById(R.id.mat_image)
         var bg: LinearLayout = view.findViewById(R.id.bg)
+        var swipeRevealLayout: SwipeRevealLayout = view as SwipeRevealLayout
+        var delete: LinearLayout = view.findViewById(R.id.delete)
         init {
             view.setOnClickListener(this)
         }
@@ -44,11 +50,17 @@ class MaterialToBePickedAdapter(var list: ArrayList<Material>) : RecyclerView.Ad
         holder.code.text = list[position].code
         holder.unitPrice.text = list[position].unitRate.toString()
         holder.qty.text = list[position].qty.toString()
+        holder.bg.setOnClickListener {  }
+        holder.delete.setOnClickListener {
+            list.removeAt(position)
+            notifyDataSetChanged()
+        }
         list[position].isSelected = true
         Glide.with(holder.image.context).load(list[position].imageUrl).fitCenter().override(
             Target.SIZE_ORIGINAL,
             Target.SIZE_ORIGINAL
         ).into(holder.image)
+        viewBinderHelper!!.bind(holder.swipeRevealLayout, list[position].id.toString())
     }
 
     override fun getItemCount(): Int {

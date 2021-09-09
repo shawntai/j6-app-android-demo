@@ -98,6 +98,7 @@ class WorkOrderActivity : AppCompatActivity(), TenantsCallback, FetchWorkOrdersC
             findViewById<TextView>(R.id.contact_person).text = workOrderImported!!.tenant?.contactPerson?.name
             findViewById<TextView>(R.id.request_time_entered).text = workOrderImported!!.requestedAt
             findViewById<TextView>(R.id.category).text = workOrderImported?.category
+            findViewById<TextView>(R.id.category).setTextColor(getColor(R.color.white))
             findViewById<EditText>(R.id.work_order_details).setText(workOrderImported?.desc)
             findViewById<TextView>(R.id.start_time_entered).text = workOrderImported?.plannedAt
             findViewById<TextView>(R.id.finish_time_entered).text = workOrderImported?.completedAt
@@ -249,6 +250,7 @@ class WorkOrderActivity : AppCompatActivity(), TenantsCallback, FetchWorkOrdersC
         findViewById<WheelPicker>(R.id.category_wp).setSelectedItemPosition(0, false)
         findViewById<WheelPicker>(R.id.category_wp).setOnItemSelectedListener { picker, data, position ->
             findViewById<TextView>(R.id.category).text = data.toString()
+            findViewById<TextView>(R.id.category).setTextColor(getColor(R.color.white))
         }
 
         val pst_ll = findViewById<LinearLayout>(R.id.time_selection)
@@ -480,6 +482,7 @@ class WorkOrderActivity : AppCompatActivity(), TenantsCallback, FetchWorkOrdersC
                     ).toString() + ":" + (if (requestTimeSelected.get(Calendar.MINUTE) < 10) "0" else "") + requestTimeSelected.get(
                         Calendar.MINUTE
                     ).toString() + if (ampm == 0) "AM" else "PM"
+                findViewById<TextView>(R.id.request_time_entered).setTextColor(getColor(R.color.white))
             }
         }
 
@@ -643,12 +646,12 @@ class WorkOrderActivity : AppCompatActivity(), TenantsCallback, FetchWorkOrdersC
         feedbackRecyclerView.itemAnimator = DefaultItemAnimator()
         feedbackRecyclerView.adapter = fAdapter
         val surveyTitles = arrayOf(
-            "1. Provision of security and safety to assigned area",
-            "2. Time and attendance",
-            "3. Relationship with fellow employees",
-            "4. Knowledge and application of laws and regulations",
-            "5. Maintenance of equipment",
-            "6. Anticipation and action in emergency situations"
+            "Provision of security and safety to assigned area",
+            "Time and attendance",
+            "Relationship with fellow employees",
+            "Knowledge and application of laws and regulations",
+            "Maintenance of equipment",
+            "Anticipation and action in emergency situations"
         )
         if (surveyList.isEmpty()) {
             for (i in 0..5) {
@@ -981,8 +984,8 @@ class WorkOrderActivity : AppCompatActivity(), TenantsCallback, FetchWorkOrdersC
 
     private val selectMaterial = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
-            val mats = result.data!!.getSerializableExtra("mat") as ArrayList<Material>
-            if (mats.size > 0) {
+            val mats = result.data!!.getSerializableExtra("mat") as ArrayList<Material>?
+            if (mats != null && mats.size > 0) {
                 materialsSelected.clear()
                 materialsSelected.addAll(mats)
             }
@@ -991,9 +994,11 @@ class WorkOrderActivity : AppCompatActivity(), TenantsCallback, FetchWorkOrdersC
 
     private val selectEquipment = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
-            val eq = result.data!!.getSerializableExtra("equip_list") as ArrayList<Equipment>
-            equipmentSelected.clear()
-            equipmentSelected.addAll(eq)
+            val eq = result.data!!.getSerializableExtra("equip_list") as ArrayList<Equipment>?
+            eq?.let {
+                equipmentSelected.clear()
+                equipmentSelected.addAll(eq)
+            }
         }
     }
 

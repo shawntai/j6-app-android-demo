@@ -3,12 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="95dp"
-    android:background="@color/color_basic_700"
+    android:background="@drawable/shape_gray_less_round"
     android:id="@+id/bg">
     <ImageView
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:src="@drawable/orange_marker"
+        android:src="@drawable/pin"
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="15dp"/>
     <LinearLayout
